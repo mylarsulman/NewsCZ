@@ -1,0 +1,252 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ArticleList from '../components/ArticleList.astro';
+
+const articles = [
+  {
+    "title": "Hlaváč povýšil na armádního generála. Prezident Pavel rozdal nové hodnosti",
+    "link": "https://www.novinky.cz/clanek/domaci-hlavac-povysil-na-armadniho-generala-prezident-pavel-rozdal-nove-hodnosti-40605347",
+    "pubDate": "Wed, 28 Oct 2026 11:42:17 +0100",
+    "contentSnippet": "Náčelník generálního štábu Miroslav Hlaváč se od středy může pyšnit hodností armádního generála. Při příležitosti výročí vzniku samostatného Československa ho do nejvyšší armádní hodnosti povýšil prezident Petr Pavel. Povýšení se dočkalo celkem 16 mužů, mezi nimi i šéf vězeňské služby Tomáš Hůlka, který se stal generálporučíkem.",
+    "source": "Novinky.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Zelenskyj s Putinem se mohou brzy setkat, řekl Trump. Kreml slíbil bezpečnostní záruky",
+    "link": "https://www.idnes.cz/zpravy/zahranicni/putin-a-zelenskyj-by-se-podle-trumpa-mohli-velmi-brzy-setkat.A261028_084701_zahranicni_remy#utm_source=rss&utm_medium=feed&utm_campaign=zpravodaj&utm_content=main",
+    "pubDate": "Wed, 28 Oct 2026 10:39:58 GMT",
+    "contentSnippet": "Ruský prezident Vladimir Putin a jeho ukrajinský protějšek Volodymyr Zelenskyj by se velmi brzy mohli sejít. Novinářům to bez upřesnění řekl americký prezident Donald Trump. Kremelský poradce Jurij Ušakov předtím sdělil, že Rusko nabízí Zelenskému bezpečnostní záruky výhradně pro případ, že by přicestoval přímo do Moskvy na osobní mírová jednání s Putinem.",
+    "source": "iDNES.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Přehled vyznamenání. Řád bílého lva mohou Češi obdržet jen dva dny v roce",
+    "link": "https://www.seznamzpravy.cz/clanek/domaci-politika-rad-bileho-lva-tgm-medaile-hrdinstvi-zasluhy-318925",
+    "pubDate": "Wed, 28 Oct 2026 11:39:45 +0100",
+    "contentSnippet": "Prezident Petr Pavel při každoroční ceremonii na Hradě udělí nebo propůjčí státní vyznamenání. Jaká ocenění mohou lidé obdržet?",
+    "source": "Seznam Zprávy",
+    "category": "domaci"
+  },
+  {
+    "title": "Letectvo nad Prahou a piety. Pavel udělil nejvyšší hodnost, povýšil dvakrát víc lidí",
+    "link": "https://www.idnes.cz/zpravy/domaci/28-rijna-svatek-akce-vyznamenani-slavnosti-senat-snemovna-strakova-akademie-obchody-prezident-petr-p.A261022_144341_domaci_linh#utm_source=rss&utm_medium=feed&utm_campaign=zpravodaj&utm_content=main",
+    "pubDate": "Wed, 28 Oct 2026 10:37:00 GMT",
+    "contentSnippet": "Prezident Petr Pavel u příležitosti 108. výročí od vzniku samostatného Československa na Pražském hradě jmenoval náčelníka generálního štábu Miroslava Hlaváče do hodnosti armádního generála. Jde o nejvyšší hodnost v české armádě. Sváteční program předtím zahájil účastí na pietním aktu u Národního památníku na pražském Vítkově, kterého se zúčastnil také premiér Andrej Babiš (ANO), předseda Senátu Miloš Vystrčil nebo šéf Poslanecké sněmovny Tomio Okamura (SPD).",
+    "source": "iDNES.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Povolební Izrael postrádá vítěze. Změnu i demokracii podkopává odmítání arabských hlasů",
+    "link": "https://denikn.cz/2235984/povolebni-izrael-postrada-viteze-zmenu-i-demokracii-podkopava-odmitani-arabskych-hlasu/",
+    "pubDate": "Wed, 28 Oct 2026 10:33:28 +0000",
+    "contentSnippet": "Analýza: Izraelské volby jsou možná u konce, co se týče samotného hlasování, soutěž o to, kdo zemi do budoucna povede a jak bude další vláda vypadat, ale ještě rozhodně neskončila.",
+    "source": "Deník N",
+    "category": "domaci"
+  },
+  {
+    "title": "Opilý řidič u Prahy naboural do stromu. Auto začalo hořet",
+    "link": "https://www.novinky.cz/clanek/domaci-opily-ridic-u-prahy-naboural-do-stromu-auto-zacalo-horet-40605346",
+    "pubDate": "Wed, 28 Oct 2026 11:27:21 +0100",
+    "contentSnippet": "Ve středu dopoledne shořelo osobní auto po nárazu do stromu u Chotče na Praze-západ. Řidič, který má platný zákaz řízení, byl pod vlivem alkoholu. Dva lidé jsou po nehodě lehce zranění.",
+    "source": "Novinky.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Na ulici v Klatovech ležela krajta. Venku mohla uhynout",
+    "link": "https://www.novinky.cz/clanek/koktejl-na-ulici-v-klatovech-lezela-krajta-venku-mohla-uhynout-40605332",
+    "pubDate": "Wed, 28 Oct 2026 11:25:28 +0100",
+    "contentSnippet": "Asi půlroční krajtou královskou odchytli nedaleko klatovské synagogy strážníci. Následně ji odvezli do místního zverimexu. Jeho majitel Tadeáš Krobot upozornil, že had mohl při současných nízkých teplotách uhynout.",
+    "source": "Novinky.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Z nájmu se stalo dlouhodobé řešení. Poptávka roste i po větších bytech, říká šéfka velkého pronajímatele",
+    "link": "https://www.novinky.cz/clanek/ekonomika-z-najmu-se-stalo-dlouhodobe-reseni-poptavka-roste-i-po-vetsich-bytech-rika-sefka-velkeho-pronajimatele-40604582",
+    "pubDate": "Wed, 28 Oct 2026 11:21:58 +0100",
+    "contentSnippet": "Stále více Čechů bydlí v pronajatém bytě. Rostoucí poptávky se snaží využít i developeři, kteří začali stavět celé nové nájemní domy. Největším hráčem na tomto trhu je dlouhodobě původem izraelská společnost AFI. Karin Shalev Shogol, generální ředitelka společnosti pro Česko, pro Novinky uvedla, že firmu nyní láká výstavba čtvrtí se stovkami bytů.",
+    "source": "Novinky.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Agresivní vězeň na Borech napadl strážné, tři z nich skončili v nemocnici",
+    "link": "https://www.idnes.cz/plzen/zpravy/vezen-napadeni-veznice-plzen-strazni-zraneni.A261028_110811_plzen-zpravy_mikp#utm_source=rss&utm_medium=feed&utm_campaign=zpravodaj&utm_content=main",
+    "pubDate": "Wed, 28 Oct 2026 10:20:00 GMT",
+    "contentSnippet": "Odsouzený muž napadl v noci na dnešek ve věznici v Plzni na Borech strážné. U incidentu, na který upozornil web Novinky.cz, zasahovala záchranná služba, která odvezla tři lidi s lehkým zraněním, řekli ve středu mluvčí vězeňské služby Markéta Prunerová a mluvčí krajské záchranné služby Luboš Bouček.",
+    "source": "iDNES.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Štípe vás nos, v nemocnicích čekáte roboty. České tenistky líčí čínskou realitu",
+    "link": "https://sport.aktualne.cz/tenis/stipe-vas-nos-v-nemocnicich-cekate-roboty-ceske-tenistky-lici-cinskou-realitu/r~aaa29ea6d917a7de782446e9ef9f413b/",
+    "pubDate": "Wed, 28 Oct 2026 11:11:00 +0100",
+    "contentSnippet": "Je to možná ta nejméně oblíbená pasáž z celé tenisové sezony pro všechny hráče a hráčky. Asijská tour turnajů vrcholí, hvězdy kurtů ždímají poslední síly a snáší úskalí specifických destinací. České tenistky Lucie Hradecká a Klára Koukalová popsaly zážitky z čínských turnajů.",
+    "source": "Aktuálně.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "„Zajímavý chaos.“ Úřady práce hrnou papírování s klienty na neziskovky",
+    "link": "https://www.seznamzpravy.cz/clanek/domaci-zivot-v-cesku-zajimavy-chaos-urady-prace-hrnou-papirovani-s-klienty-na-neziskovky-318636",
+    "pubDate": "Wed, 28 Oct 2026 11:10:52 +0100",
+    "contentSnippet": "Přibývají situace, kdy státní úředníci posílají žadatele o dávky s problémy za neziskovými organizacemi. Razítko od poradny představuje důkaz, že se lidé snaží svojí situaci řešit.",
+    "source": "Seznam Zprávy",
+    "category": "domaci"
+  },
+  {
+    "title": "Vagón vyletěl do vzduchu, bylo to brutální. Svědci popsali tragickou nehodu vlaků ve Španělsku",
+    "link": "https://www.novinky.cz/clanek/zahranicni-evropa-vagon-vyletel-do-vzduchu-svedek-popsal-tragickou-nehodu-vlaku-ve-spanelsku-40605345",
+    "pubDate": "Wed, 28 Oct 2026 10:59:21 +0100",
+    "contentSnippet": "Přišel obrovský náraz, při kterém jeden z vagónů vylétl do vzduchu, popsal středeční nehodu dvou vysokorychlostních vlaků cestující Miguel Ángel Pérez Laguna, který pracuje ve španělské stanici Capital Radio. Další cestující Jesús Jerónimo uvedl, že incident byl brutální. Lidi podle něj srážka vlaků vymrštila ze sedadel. Nehoda si prozatím vyžádala nejméně 50 lidských životů, dalších 179 osob bylo zraněno.",
+    "source": "Novinky.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Přelstil nacisty a zachránil tisíce životů. Místo vděku čekal konzula kriminál",
+    "link": "https://magazin.aktualne.cz/prelstil-nacisty-a-zachranil-tisice-zivotu-misto-vdeku-cekal-konzula-lagr-ve-valdicich/r~aaa29aa118c3d09526096c66d8d1e618/",
+    "pubDate": "Wed, 28 Oct 2026 10:59:00 +0100",
+    "contentSnippet": "V USA, Francii i Izraeli patří k uctívaným zachráncům, na Pražském hradě jeho jméno při státních vyznamenáních ještě nezaznělo. Diplomat Vladimír Vochoč v Marseille během druhé světové války přelstil gestapo, tiskl falešné růžové pasy a zachránil dva a půl tisíce životů. Místo díků ho komunisté poslali do lágru. Příběh zapomenutého hrdiny je doslova strhující.",
+    "source": "Aktuálně.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Volby v Izraeli: vzestup Arabů vyšachovává velké bloky do patové situace",
+    "link": "https://www.idnes.cz/zpravy/zahranicni/po-secteni-42-procent-hlasu-vede-v-izraelskych-volbach-vladni-blok-pise-web.A261028_070420_zahranicni_remy#utm_source=rss&utm_medium=feed&utm_campaign=zpravodaj&utm_content=main",
+    "pubDate": "Wed, 28 Oct 2026 09:57:44 GMT",
+    "contentSnippet": "Po sečtení více než tří čtvrtin hlasů odevzdaných v úterních izraelských volbách vede blok premiéra Benjamina Netanjahua, většinu v parlamentu ale podle všeho mít nebude. Může získat 54 křesel, zatímco opoziční blok vedený Gadim Eisenkotem má zatím 47 mandátů. Rýsuje se patová situace, kdy ani jeden z bloků nemá na to, aby dosáhl většiny 61 poslanců,",
+    "source": "iDNES.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Vzkaz slovenských novinářů do Česka: Pokud ještě můžete zesílit svůj odpor, zesilte ho",
+    "link": "https://www.novinky.cz/clanek/kultura-tv-streaming-vzkaz-slovenskych-novinaru-do-ceska-pokud-jeste-muzete-zesilit-svuj-odpor-zesilte-ho-40605143",
+    "pubDate": "Wed, 28 Oct 2026 10:57:00 +0100",
+    "contentSnippet": "Evropskou premiéru měl na Mezinárodním festivalu dokumentárních filmů Ji.hlava slovenský film Přeladění. Snímek režisérky Sáry Prokopové popisuje postupné ovládnutí slovenské veřejnoprávní televize a rozhlasu vládními strukturami. Projekci i následnou debatu provázely emoce vyvolané nedávnými událostmi v Česku, kde se poslanci vládní strany rozhodli prosadit změnu financování veřejnoprávních médií tvrdým postupem, který je v rozporu se všemi pravidly.",
+    "source": "Novinky.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Ve Španělsku se srazily dva rychlovlaky. Na místě je nejméně 10 mrtvých",
+    "link": "https://zpravy.aktualne.cz/zahranici/ve-spanelsku-se-srazily-dva-rychlovlaky-na-miste-je-nejmene-10-mrtvych/r~aaa29083348541a3769feb0bed9ece01/",
+    "pubDate": "Wed, 28 Oct 2026 10:47:00 +0100",
+    "contentSnippet": "Při srážce dvou vysokorychlostních vlaků v centrálním Španělsku zemřelo ve středu ráno nejméně deset lidí. S odvoláním na zdroje z vlády o tom informoval deník El País, podle něhož je nehoda velmi vážná a počet obětí může vzrůst. Další španělská média ale informují o vyšších počtech obětí. Dva vagony jednoho z vlaků vykolejily a spadly ze svahu.",
+    "source": "Aktuálně.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Jak vysoký má být deficit rozpočtu? Máme přece Zlaté pravidlo",
+    "link": "https://www.seznamzpravy.cz/clanek/ekonomika-ocima-byznysu-ocima-byznysu-jak-vysoky-ma-byt-deficit-rozpoctu-mame-prece-zlate-pravidlo-318751",
+    "pubDate": "Wed, 28 Oct 2026 10:43:03 +0100",
+    "contentSnippet": "Může se zdát, že na určení správné výše deficitu státního rozpočtu správná rada neexistuje. Ale „zlaté pravidlo“ už známe, potřebuje však dobrou domácí přípravu, píše v komentáři ekonom České spořitelny Michal Skořepa.",
+    "source": "Seznam Zprávy",
+    "category": "domaci"
+  },
+  {
+    "title": "Deník N slaví osm let své existence",
+    "link": "https://denikn.cz/2234554/denik-n-slavi-osm-let-sve-existence/",
+    "pubDate": "Wed, 28 Oct 2026 09:38:35 +0000",
+    "contentSnippet": "Vážení a milí přátelé, za dobu, kdy existuje Deník N (a právě dnes je to přesně těžko uvěřitelných osm let od našeho oficiálního startu), jsme společně prošli mnoha těžkými chvílemi. A obávám se, že nás v našem nebezpečném světě ještě další velké zkoušky čekají. Otřásají se i ty nejzákladnější bezpečnostní a spojenecké jistoty moderní doby. Musíme se potýkat s válečnými konflikty, mocenskými touhami autoritářů, podrýváním […]",
+    "source": "Deník N",
+    "category": "domaci"
+  },
+  {
+    "title": "Výrobce čipů SK Hynix zesedminásobil zisk",
+    "link": "https://www.novinky.cz/clanek/ekonomika-vyrobce-cipu-sk-hynix-zesedminasobil-zisk-40605343",
+    "pubDate": "Wed, 28 Oct 2026 10:30:03 +0100",
+    "contentSnippet": "Jihokorejský výrobce čipů SK Hynix meziročně více než zesedminásobil zisk na rekordních 83,3 bilionu wonů (1,4 bilionu korun). Dál těží z poptávky po umělé inteligenci (AI), která zvyšuje ceny paměťových čipů.",
+    "source": "Novinky.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Srazily se španělské rychlovlaky. Vagony spadly z náspu, nejméně deset mrtvých",
+    "link": "https://www.idnes.cz/zpravy/zahranicni/spanelsko-vlaky-toledo-nehoda.A261028_095329_zahranicni_jhr#utm_source=rss&utm_medium=feed&utm_campaign=zpravodaj&utm_content=main",
+    "pubDate": "Wed, 28 Oct 2026 09:29:08 GMT",
+    "contentSnippet": "Nejméně deset mrtvých si dnes vyžádala srážka dvou vysokorychlostních vlaků ve Španělsku, a to na klíčové trati spojující hlavní město Madrid s Andalusií. Nehoda se stala krátce před devátou hodinou ranní mezi obcemi Los Yébenes a Urda, kde do sebe narazily dvě plně obsazené soupravy.",
+    "source": "iDNES.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Koalice kvůli poplatkům vytáhla Kuberu. My to nedělali na tajňačku, hájí ODS Kupka",
+    "link": "https://zpravy.aktualne.cz/domaci/koalice-kvuli-poplatkum-vytahla-kuberu-my-to-nedelali-na-tajnacku-haji-ods-kupka/r~aaa2962a072c789d72ce3e656b76cc1e/",
+    "pubDate": "Wed, 28 Oct 2026 10:26:00 +0100",
+    "contentSnippet": "ODS i Piráti také chtěli zrušit poplatky za Českou televizi a Český rozhlas. To je argument, který používá současná vládní většina. Dokonce si na pomoc „povolala“ zesnulého Jaroslava Kuberu (ODS). Obě strany si se zrušením poplatků skutečně pohrávaly ve svých programech, občanští demokraté dokonce návrh před lety chtěli protlačit Senátem. Šéf ODS Martin Kupka ale tvrdí, že tehdy byla „jiná doba“.",
+    "source": "Aktuálně.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Válečná stezka: Ukrajinský „Vivaldi“ úspěšně dokoncertoval, finsko-ruský telefonát ale budí otázky",
+    "link": "https://denikn.cz/2235007/valecna-stezka-ukrajinsky-vivaldi-uspesne-dokoncertoval-finsko-rusky-telefonat-ale-budi-otazky/",
+    "pubDate": "Wed, 28 Oct 2026 09:20:14 +0000",
+    "contentSnippet": "Nejdůležitější dění Co rozhodne válku: Války končí buď zásadním tlakem od stran, jež nejsou přímými aktéry (a který uspěje proto, že jsou mnohem mocnější), zhroucením jedné strany (vojenským či hospodářským), nebo vyčerpaností obou stran do té míry, že se dokážou na podmínkách konce bojů dohodnout. Nepřijde-li mimořádná inovace a průlom díky ní (a válka nás zatím učila, že takové […]",
+    "source": "Deník N",
+    "category": "domaci"
+  },
+  {
+    "title": "Ve Španělsku se srazily dva vysokorychlostní vlaky, nejméně deset mrtvých",
+    "link": "https://www.seznamzpravy.cz/clanek/zahranicni-ve-spanelsku-se-srazily-dva-vysokorychlostni-vlaky-na-miste-je-mnoho-ranenych-318970",
+    "pubDate": "Wed, 28 Oct 2026 10:19:34 +0100",
+    "contentSnippet": "K nehodě dvou vysokorychlostních vlaků došlo v centrálním Španělsku u Toleda. Dva vagony vykolejily a zřítily se ze svahu.",
+    "source": "Seznam Zprávy",
+    "category": "domaci"
+  },
+  {
+    "title": "„Tohle je Amerika!“ Trumpův muž se v OSN překřikoval s kubánským ministrem",
+    "link": "https://www.seznamzpravy.cz/clanek/zahranicni-tohle-je-amerika-trumpuv-muz-se-v-osn-prekrikoval-s-kubanskym-ministrem-318968",
+    "pubDate": "Wed, 28 Oct 2026 10:13:37 +0100",
+    "contentSnippet": "K hlasité výměně názorů došlo během projevu amerického velvyslance při OSN Mikea Waltze. Roztržku vyvolalo obvinění, že havanská vláda profituje z nucených prací svých občanů.",
+    "source": "Seznam Zprávy",
+    "category": "domaci"
+  },
+  {
+    "title": "Policejní hromadné odběry DNA jako zásah do soukromí. České právo zatím mlčí",
+    "link": "https://www.seznamzpravy.cz/clanek/domaci-zivot-v-cesku-policejni-hromadne-odbery-dna-jako-zasah-do-soukromi-ceske-pravo-zatim-mlci-318163",
+    "pubDate": "Wed, 28 Oct 2026 10:03:23 +0100",
+    "contentSnippet": "Plošné testování DNA, jaké policie nedávno využila v Rovensku pod Troskami, představuje zásah do soukromí lidí, kteří nejsou z ničeho podezřelí. Přesto české zákony výslovně neupravují, kdy a jak lze tuto metodu použít.",
+    "source": "Seznam Zprávy",
+    "category": "domaci"
+  },
+  {
+    "title": "FOTO: Pavel, Babiš i Okamura. Oslavy založení státu na Vítkově",
+    "link": "https://www.novinky.cz/clanek/domaci-foto-pavel-babis-i-okamura-oslavy-zalozeni-statu-na-vitkove-40605341",
+    "pubDate": "Wed, 28 Oct 2026 10:03:16 +0100",
+    "contentSnippet": "Za účasti nejvyšších ústavních činitelů proběhla na pražském Vítkově vojenská přehlídka u příležitosti oslav 108. výročí založení Československa.",
+    "source": "Novinky.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Do Mnichova! Únosce letadla v Praze prchal na Západ, ne však kvůli režimu",
+    "link": "https://www.idnes.cz/zpravy/domaci/unos-letadla-ceskoslovensko-rudolf-becvar-strelba-vrazda-kriminalnik.A261026_153015_domaci_krou#utm_source=rss&utm_medium=feed&utm_campaign=zpravodaj&utm_content=main",
+    "pubDate": "Wed, 28 Oct 2026 09:00:00 GMT",
+    "contentSnippet": "Před 50 lety vnikl na letišti v Praze ozbrojený recidivista do letadla mířícího na Slovensko. Pod hrozbou střelby si vynutil změnu kurzu letu na Západ, navíc tvrdil, že má mezi pasažéry komplice s výbušninou. Jeho pozdější konec se v mnoha ohledech podobá osudu jiného únosce a společně je obklopují různé spekulace.",
+    "source": "iDNES.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Vláda chce oslabit odvolací soudy. Proč jsou sporné Tejcovy argumenty, že nejde o Čapí hnízdo? ",
+    "link": "https://www.reflex.cz/clanek/komentare/139052/vlada-chce-oslabit-odvolaci-soudy-proc-jsou-sporne-tejcovy-argumenty-ze-nejde-o-capi-hnizdo.html",
+    "pubDate": "Wed, 28 Oct 2026 10:00:00 +0100",
+    "contentSnippet": "Vláda schválila novelu trestního řádu z dílny ministra spravedlnosti Jeronýma Tejce, která zakazuje odvolacím soudům zavazovat nižší soudy právním názorem a omezuje možnost odebrání případu původnímu soudci.\nNávrh čelí kritice kvůli podezřelému načasování a věcné shodě s kauzou Čapí hnízdo, kde by nová procesní pravidla mohla po vypršení imunity přímo ovlivnit další stíhání Andreje Babiše.\nAčkoli ministr Tejc odmítá účelovost i souvislost s premiérovým případem, autor textu poukazuje na vládní střet zájmů a zpochybňuje ministrovu nestrannost.",
+    "source": "Reflex.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "U Toleda se srazily vysokorychlostní vlaky, vagóny se zřítily z náspu. Desítky mrtvých",
+    "link": "https://www.novinky.cz/clanek/zahranicni-evropa-v-toledu-se-srazily-dva-vysokorychlostni-vlaky-40605342",
+    "pubDate": "Wed, 28 Oct 2026 09:57:33 +0100",
+    "contentSnippet": "Nedaleko španělského města Toledo se ve středu ráno srazily dva vysokorychlostní vlaky. Informoval o tom server El Español, podle něhož byl přerušen provoz na trati spojující Madrid a Andalusii. Podle médií je na místě nejméně 50 mrtvých a 179 zraněných.",
+    "source": "Novinky.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "28. říjen ve fotkách: Na Vítkově uctili památku Pavel, Babiš, Okamura",
+    "link": "https://www.seznamzpravy.cz/clanek/obrazem-28-rijen-ve-fotkach-na-vitkove-uctili-pamatku-pavel-babis-okamura-318964",
+    "pubDate": "Wed, 28 Oct 2026 09:54:06 +0100",
+    "contentSnippet": "Prezident Petr Pavel, premiér Andrej Babiš a další politici si dnes připomněli u Národního památníku na pražském Vítkově 108. výročí vzniku Československa. Pietní a tradiční akce sledujeme celý den ve fotografiích.",
+    "source": "Seznam Zprávy",
+    "category": "domaci"
+  }
+];
+const category = {"id":"domaci","name":"Z domova","icon":"🏠"};
+---
+
+<Layout title="Z domova – News" category={category}>
+  <ArticleList articles={articles} />
+</Layout>

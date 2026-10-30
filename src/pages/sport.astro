@@ -1,0 +1,252 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ArticleList from '../components/ArticleList.astro';
+
+const articles = [
+  {
+    "title": "Hlaváč povýšil na armádního generála. Prezident Pavel rozdal nové hodnosti",
+    "link": "https://www.novinky.cz/clanek/domaci-hlavac-povysil-na-armadniho-generala-prezident-pavel-rozdal-nove-hodnosti-40605347",
+    "pubDate": "Wed, 28 Oct 2026 11:42:17 +0100",
+    "contentSnippet": "Náčelník generálního štábu Miroslav Hlaváč se od středy může pyšnit hodností armádního generála. Při příležitosti výročí vzniku samostatného Československa ho do nejvyšší armádní hodnosti povýšil prezident Petr Pavel. Povýšení se dočkalo celkem 16 mužů, mezi nimi i šéf vězeňské služby Tomáš Hůlka, který se stal generálporučíkem.",
+    "source": "Novinky Sport",
+    "category": "sport"
+  },
+  {
+    "title": "Opilý řidič u Prahy naboural do stromu. Auto začalo hořet",
+    "link": "https://www.novinky.cz/clanek/domaci-opily-ridic-u-prahy-naboural-do-stromu-auto-zacalo-horet-40605346",
+    "pubDate": "Wed, 28 Oct 2026 11:27:21 +0100",
+    "contentSnippet": "Ve středu dopoledne shořelo osobní auto po nárazu do stromu u Chotče na Praze-západ. Řidič, který má platný zákaz řízení, byl pod vlivem alkoholu. Dva lidé jsou po nehodě lehce zranění.",
+    "source": "Novinky Sport",
+    "category": "sport"
+  },
+  {
+    "title": "Na ulici v Klatovech ležela krajta. Venku mohla uhynout",
+    "link": "https://www.novinky.cz/clanek/koktejl-na-ulici-v-klatovech-lezela-krajta-venku-mohla-uhynout-40605332",
+    "pubDate": "Wed, 28 Oct 2026 11:25:28 +0100",
+    "contentSnippet": "Asi půlroční krajtou královskou odchytli nedaleko klatovské synagogy strážníci. Následně ji odvezli do místního zverimexu. Jeho majitel Tadeáš Krobot upozornil, že had mohl při současných nízkých teplotách uhynout.",
+    "source": "Novinky Sport",
+    "category": "sport"
+  },
+  {
+    "title": "Z nájmu se stalo dlouhodobé řešení. Poptávka roste i po větších bytech, říká šéfka velkého pronajímatele",
+    "link": "https://www.novinky.cz/clanek/ekonomika-z-najmu-se-stalo-dlouhodobe-reseni-poptavka-roste-i-po-vetsich-bytech-rika-sefka-velkeho-pronajimatele-40604582",
+    "pubDate": "Wed, 28 Oct 2026 11:21:58 +0100",
+    "contentSnippet": "Stále více Čechů bydlí v pronajatém bytě. Rostoucí poptávky se snaží využít i developeři, kteří začali stavět celé nové nájemní domy. Největším hráčem na tomto trhu je dlouhodobě původem izraelská společnost AFI. Karin Shalev Shogol, generální ředitelka společnosti pro Česko, pro Novinky uvedla, že firmu nyní láká výstavba čtvrtí se stovkami bytů.",
+    "source": "Novinky Sport",
+    "category": "sport"
+  },
+  {
+    "title": "Z kanadského pekla rovnou k výhře. Devils už těží z Hellebuyckova útěku a rádi by další hvězdu",
+    "link": "https://www.sport.cz/clanek/hokej-nhl-z-kanadskeho-pekla-rovnou-k-vyhre-devils-uz-tezi-z-hellebuyckova-uteku-a-radi-by-dalsi-hvezdu-5564874",
+    "pubDate": "Wed, 28 Oct 2026 11:19:26 +0100",
+    "contentSnippet": "Hele ho! Jen čtyři dny po výměně z Winnipegu získal americký gólman Connor Hellebuyck v NHL svou první výhru v dresu New Jersey. Fanoušci Devils po výsledku 5:1 na ledě silného Dallasu propadají euforii. Konečně zase máme tým na Stanley Cup.",
+    "source": "Sport.cz",
+    "category": "sport"
+  },
+  {
+    "title": "Slovák dal ranec za El Clásico, pak doplatil na válku odvěkých rivalů",
+    "link": "https://www.sport.cz/clanek/fotbal-la-liga-slovak-dal-ranec-za-el-clasico-pak-doplatil-na-valku-znepratelenych-rivalu-5564872",
+    "pubDate": "Wed, 28 Oct 2026 11:19:23 +0100",
+    "contentSnippet": "Měl to být nezapomenutelný dárek k synovým osmnáctinám, místo toho přišlo obrovské zklamání. Slovenský fanoušek Realu Madrid zaplatil za čtyři vstupenky na El Clásico zhruba 130 tisíc korun. Po oslavě gólu Kyliana Mbappého ho ale společně se synem vyvedla ze stadionu ochranka. Zbytek utkání pak sledovali na mobilu v taxíku.",
+    "source": "Sport.cz",
+    "category": "sport"
+  },
+  {
+    "title": "Štípe vás nos, v nemocnicích čekáte roboty. České tenistky líčí čínskou realitu",
+    "link": "https://sport.aktualne.cz/tenis/stipe-vas-nos-v-nemocnicich-cekate-roboty-ceske-tenistky-lici-cinskou-realitu/r~aaa29ea6d917a7de782446e9ef9f413b/",
+    "pubDate": "Wed, 28 Oct 2026 11:11:00 +0100",
+    "contentSnippet": "Je to možná ta nejméně oblíbená pasáž z celé tenisové sezony pro všechny hráče a hráčky. Asijská tour turnajů vrcholí, hvězdy kurtů ždímají poslední síly a snáší úskalí specifických destinací. České tenistky Lucie Hradecká a Klára Koukalová popsaly zážitky z čínských turnajů.",
+    "source": "Aktuálně Sport",
+    "category": "sport"
+  },
+  {
+    "title": "Vagón vyletěl do vzduchu, bylo to brutální. Svědci popsali tragickou nehodu vlaků ve Španělsku",
+    "link": "https://www.novinky.cz/clanek/zahranicni-evropa-vagon-vyletel-do-vzduchu-svedek-popsal-tragickou-nehodu-vlaku-ve-spanelsku-40605345",
+    "pubDate": "Wed, 28 Oct 2026 10:59:21 +0100",
+    "contentSnippet": "Přišel obrovský náraz, při kterém jeden z vagónů vylétl do vzduchu, popsal středeční nehodu dvou vysokorychlostních vlaků cestující Miguel Ángel Pérez Laguna, který pracuje ve španělské stanici Capital Radio. Další cestující Jesús Jerónimo uvedl, že incident byl brutální. Lidi podle něj srážka vlaků vymrštila ze sedadel. Nehoda si prozatím vyžádala nejméně 50 lidských životů, dalších 179 osob bylo zraněno.",
+    "source": "Novinky Sport",
+    "category": "sport"
+  },
+  {
+    "title": "Mussoliniho pravnuk udeřil v Serii A. Trefil se na den přesně tragického výročí",
+    "link": "https://www.sport.cz/clanek/fotbal-serie-a-mussoliniho-pravnuk-uderil-v-serii-a-trefil-se-na-den-presne-tragickeho-vyroci-5564871",
+    "pubDate": "Wed, 28 Oct 2026 10:58:30 +0100",
+    "contentSnippet": "Příjmení, které nejen v Itálii stále budí emoce. Premiérový gól v Serii A si připsal obránce Lazia Romano Floriani Mussolini. Pravnuk fašistického diktátora Benita Mussoliniho jím přispěl k vysoké výhře 6:2 nad Sassuolem. Světová média upozorňují, že se trefil na den přesně na 104. výročí pochodu na Řím, který pomohl jeho pradědovi dostat se k moci.",
+    "source": "Sport.cz",
+    "category": "sport"
+  },
+  {
+    "title": "Vzkaz slovenských novinářů do Česka: Pokud ještě můžete zesílit svůj odpor, zesilte ho",
+    "link": "https://www.novinky.cz/clanek/kultura-tv-streaming-vzkaz-slovenskych-novinaru-do-ceska-pokud-jeste-muzete-zesilit-svuj-odpor-zesilte-ho-40605143",
+    "pubDate": "Wed, 28 Oct 2026 10:57:00 +0100",
+    "contentSnippet": "Evropskou premiéru měl na Mezinárodním festivalu dokumentárních filmů Ji.hlava slovenský film Přeladění. Snímek režisérky Sáry Prokopové popisuje postupné ovládnutí slovenské veřejnoprávní televize a rozhlasu vládními strukturami. Projekci i následnou debatu provázely emoce vyvolané nedávnými událostmi v Česku, kde se poslanci vládní strany rozhodli prosadit změnu financování veřejnoprávních médií tvrdým postupem, který je v rozporu se všemi pravidly.",
+    "source": "Novinky Sport",
+    "category": "sport"
+  },
+  {
+    "title": "Fenerbahce po odchodu trenéra Kartala dočasně povede asistent Kuijt",
+    "link": "https://www.sport.cz/clanek/fotbal-fenerbahce-po-odchodu-trenera-kartala-docasne-povede-asistent-kuijt-5564873",
+    "pubDate": "Wed, 28 Oct 2026 10:56:52 +0100",
+    "contentSnippet": "Fotbalisty Fenerbahce po odstoupení trenéra Ismaila Kartala dočasně povede dosavadní asistent a bývalý nizozemský reprezentant Dirk Kuijt. Istanbulský celek o tom informoval na webu.",
+    "source": "Sport.cz",
+    "category": "sport"
+  },
+  {
+    "title": "Výrobce čipů SK Hynix zesedminásobil zisk",
+    "link": "https://www.novinky.cz/clanek/ekonomika-vyrobce-cipu-sk-hynix-zesedminasobil-zisk-40605343",
+    "pubDate": "Wed, 28 Oct 2026 10:30:03 +0100",
+    "contentSnippet": "Jihokorejský výrobce čipů SK Hynix meziročně více než zesedminásobil zisk na rekordních 83,3 bilionu wonů (1,4 bilionu korun). Dál těží z poptávky po umělé inteligenci (AI), která zvyšuje ceny paměťových čipů.",
+    "source": "Novinky Sport",
+    "category": "sport"
+  },
+  {
+    "title": "Zápasnice Hanzlíčková má na dosah medaili, na MS postoupila do semifinále",
+    "link": "https://www.sport.cz/clanek/bojove-sporty-zapasnice-hanzlickova-ma-na-dosah-medaili-na-ms-postoupila-do-semifinale-5564870",
+    "pubDate": "Wed, 28 Oct 2026 10:12:41 +0100",
+    "contentSnippet": "Zápasnice Adéla Hanzlíčková postoupila na mistrovství světa ve váze do 68 kg do semifinále a rok po operaci přetrženého vazu a poraněného menisku v levém koleně ji jedna výhra dělí od medaile. Její další soupeřkou bude dnes po poledni SEČ obhájkyně loňského bronzu Lung Ťia z Číny. O cenné kovy se poté bude v Astaně bojovat ve čtvrtek.",
+    "source": "Sport.cz",
+    "category": "sport"
+  },
+  {
+    "title": "Videomomenty. Státní svátek na ledě, Kometa hostí lídra z Třince",
+    "link": "https://www.sport.cz/clanek/hokej-extraliga-videomomenty-statni-svatek-na-lede-kometa-hosti-lidra-z-trince-5564662",
+    "pubDate": "Wed, 28 Oct 2026 10:05:55 +0100",
+    "contentSnippet": "Den vzniku samostatného československého státu oslaví hokejisté Brna a Třince na ledě. Kometa v dohrávce 15. kola Tipsport extraligy vyzve ve Winning Group areně lídra tabulky. Utkání se hraje od 18:00. Sport.cz vám nabízí v této online reportáži nejdůležitější údaje a ve video ukázkách i všechny góly a nejzajímavější momenty zápasu. K dispozici je také živý audiokomentář od Českého rozhlasu.",
+    "source": "Sport.cz",
+    "category": "sport"
+  },
+  {
+    "title": "FOTO: Pavel, Babiš i Okamura. Oslavy založení státu na Vítkově",
+    "link": "https://www.novinky.cz/clanek/domaci-foto-pavel-babis-i-okamura-oslavy-zalozeni-statu-na-vitkove-40605341",
+    "pubDate": "Wed, 28 Oct 2026 10:03:16 +0100",
+    "contentSnippet": "Za účasti nejvyšších ústavních činitelů proběhla na pražském Vítkově vojenská přehlídka u příležitosti oslav 108. výročí založení Československa.",
+    "source": "Novinky Sport",
+    "category": "sport"
+  },
+  {
+    "title": "U Toleda se srazily vysokorychlostní vlaky, vagóny se zřítily z náspu. Desítky mrtvých",
+    "link": "https://www.novinky.cz/clanek/zahranicni-evropa-v-toledu-se-srazily-dva-vysokorychlostni-vlaky-40605342",
+    "pubDate": "Wed, 28 Oct 2026 09:57:33 +0100",
+    "contentSnippet": "Nedaleko španělského města Toledo se ve středu ráno srazily dva vysokorychlostní vlaky. Informoval o tom server El Español, podle něhož byl přerušen provoz na trati spojující Madrid a Andalusii. Podle médií je na místě nejméně 50 mrtvých a 179 zraněných.",
+    "source": "Novinky Sport",
+    "category": "sport"
+  },
+  {
+    "title": "Jsou úplně podělaní! sepsul expert hráče Zbrojovky. Co na to Svědík?",
+    "link": "https://www.sport.cz/clanek/fotbal-pohar-jsou-uplne-podelani-sepsul-expert-hrace-zbrojovky-co-na-to-svedik-5564842",
+    "pubDate": "Wed, 28 Oct 2026 09:50:27 +0100",
+    "contentSnippet": "Druhá cesta do Edenu a znovu porážka 0:4. Fotbalisté Zbrojovky Brno nestačili v osmifinále MOL Cupu na Slavii a stejně jako před pár týdny v lize jedou domů s debaklem. „Výše skóre mě mrzí, je to ostuda,“ konstatoval trenér Martin Svědík. Hodně rozladěný byl z výkonu některých hráčů, kteří dostali v poháru šanci.",
+    "source": "Sport.cz",
+    "category": "sport"
+  },
+  {
+    "title": "Kdysi třetí největší české město. Co zbylo z Chicaga",
+    "link": "https://www.novinky.cz/clanek/zahranicni-kdysi-treti-nejvetsi-ceske-mesto-co-zbylo-z-ceskeho-chicaga-40605133",
+    "pubDate": "Wed, 28 Oct 2026 09:49:34 +0100",
+    "contentSnippet": "Před první světovou válkou žilo v Chicagu přes 100 tisíc lidí českého původu, vycházely tu česky psané noviny a na místní univerzitě přednášel budoucí československý prezident T. G. Masaryk. Šlo tehdy o město s třetí největší českou populací po Praze a Vídni. Dnes podle odhadů amerického Census Bureau stále uvádí český původ v chicagské metropolitní oblasti zhruba 73 tisíc lidí. Česky však už mluví jen málokdo a těch, kteří se snaží české dědictví udržet při životě, je ještě méně.",
+    "source": "Novinky Sport",
+    "category": "sport"
+  },
+  {
+    "title": "Historická ostuda! Anglická média šijí do Arsenalu",
+    "link": "https://www.sport.cz/clanek/fotbal-historicka-ostuda-anglicka-media-tepou-arsenal-za-pad-s-outsiderem-schytava-to-i-kouc-arteta-5564868",
+    "pubDate": "Wed, 28 Oct 2026 09:40:35 +0100",
+    "contentSnippet": "Albion je v šoku. Arsenal, úřadujícího šampiona Premier League, vyřadil z anglického Ligového poháru tým ze spodku čtvrté ligy Fleetwood Town (1:1, na penalty 3:5). Britská média a experti nenechávají na Arsenalu nit suchou, mocně kritizovaný je také kouč Mikel Arteta za reakci k vyloučenému 16letému talentu Maxu Dowmanovi.",
+    "source": "Sport.cz",
+    "category": "sport"
+  },
+  {
+    "title": "Agresivní vězeň napadl v Plzni dozorce, tři z nich skončili v nemocnici",
+    "link": "https://www.novinky.cz/clanek/krimi-agresivni-vezen-napadl-v-plzni-dozorce-tri-z-nich-skoncili-v-nemocnici-40605334",
+    "pubDate": "Wed, 28 Oct 2026 09:39:04 +0100",
+    "contentSnippet": "Záchranáři zasahovali v noci z úterý na středu v plzeňské věznici na Borech. Podle prvotních informací tam agresivní trestanec napadl dozorce. Tři z nich museli záchranáři převézt do nemocnice.",
+    "source": "Novinky Sport",
+    "category": "sport"
+  },
+  {
+    "title": "Apple chrlí jednu novinku za druhou. Po iPadu a MacBooku ukázal iMac",
+    "link": "https://www.novinky.cz/clanek/internet-a-pc-hardware-apple-chrli-jednu-novinku-za-druhou-po-ipadu-a-macbooku-ukazal-imac-40605336",
+    "pubDate": "Wed, 28 Oct 2026 09:37:59 +0100",
+    "contentSnippet": "Už ve středu večer se má v americkém Los Angeles konat velká tiskovka společnosti Apple. Americký technologický gigant ale nečekaně ještě před akcí odhaluje jednu novinku za druhou – po kompaktním tabletu iPad mini a výkonném laptopu MacBook Pro si premiéru odbyl také all-in-one počítač iMac. Nejnovější verze nabízí díky čipu M6 především svižnější pracovní tempo, ceny v Česku startují na 44 990 Kč.",
+    "source": "Novinky Sport",
+    "category": "sport"
+  },
+  {
+    "title": "Křičel Alláhu akbar. V Srbsku zastřelili nezletilého útočníka u izraelské ambasády",
+    "link": "https://www.novinky.cz/clanek/zahranicni-evropa-kricel-allahu-akbar-v-srbsku-zastrelili-nezletileho-utocnika-u-izraelske-ambasady-40605337",
+    "pubDate": "Wed, 28 Oct 2026 09:31:00 +0100",
+    "contentSnippet": "Srbský policista střežící izraelskou ambasádu v Bělehradě v noci na středu zastřelil nezletilého mladíka, který na něj za křiku Alláhu akbar zaútočil nožem. Informoval o tom srbská stanice N1, podle níž úřady incident vyšetřují jako teroristický útok. V Izraeli se v úterý uskutečnily parlamentní volby, sečteny však budou až během středy.",
+    "source": "Novinky Sport",
+    "category": "sport"
+  },
+  {
+    "title": "Barcelona dostala za neoprávněné jednání s Álvarezem pokutu",
+    "link": "https://www.sport.cz/clanek/fotbal-la-liga-barcelona-dostala-za-neopravnene-jednani-s-alvarezem-pokutu-5564867",
+    "pubDate": "Wed, 28 Oct 2026 09:29:10 +0100",
+    "contentSnippet": "Barcelona dostala od španělského fotbalového svazu pokutu 602 eur (zhruba 14 600 korun) za neoprávněné jednání s útočníkem Atlética Madrid Juliánem Álvarezem. Informovala o tom agentura Reuters.",
+    "source": "Sport.cz",
+    "category": "sport"
+  },
+  {
+    "title": "Na domácí šampionát se těšíme, ostravští fanoušci mají velkou reputaci, tvrdí skip Klíma",
+    "link": "https://www.sport.cz/clanek/ostatni-chceme-nejmene-do-semifinale-vyhlasuje-pred-vstupem-do-sampionatu-v-ostrave-skip-klima-5564089",
+    "pubDate": "Wed, 28 Oct 2026 09:25:06 +0100",
+    "contentSnippet": "Zatímco české reprezentantky zahájily evropský šampionát v curlingu v Ostravě už v úterý, domácí muži, vedení skipem Lukášem Klímou, si mohli úvodní den turnaje, který se v Česku koná vůbec poprvé, vychutnat jako jejich fanoušci. První dva duely je čekají ve středu. V poledne vyzvou Polsko a večer nastoupí proti Švýcarsku (od 19 hodin). „Každý zápas chceme vyhrát. Máme za sebou povedený podzim a naše ambice jsou vysoké,“ říká 35letý kapitán českého národního týmu Lukáš Klíma.",
+    "source": "Sport.cz",
+    "category": "sport"
+  },
+  {
+    "title": "U fotbalistů Espaňolu skončil po nečekaném vyřazení z poháru trenér González",
+    "link": "https://www.sport.cz/clanek/fotbal-la-liga-u-fotbalistu-espanolu-skoncil-po-necekanem-vyrazeni-z-poharu-trener-gonzalez-5564865",
+    "pubDate": "Wed, 28 Oct 2026 09:16:49 +0100",
+    "contentSnippet": "Od fotbalistů Espaňolu Barcelona byl odvolán trenér Manolo González. Skončil jen krátce poté, co s týmem překvapivě vypadl v prvním kole Španělského poháru s celkem Sestao River ze čtvrté ligy. Klub o tom informoval na webu.",
+    "source": "Sport.cz",
+    "category": "sport"
+  },
+  {
+    "title": "Proč bych měl střídat? Zázrak z Long Islandu se zapsal do dějin NHL",
+    "link": "https://www.sport.cz/clanek/hokej-nhl-proc-bych-mel-stridat-zazrak-z-long-islandu-prepsal-dejiny-nhl-5564863",
+    "pubDate": "Wed, 28 Oct 2026 09:11:04 +0100",
+    "contentSnippet": "Často omílaná floskule, že hokejista v zápase neslezl z ledu, dostala v podání 19letého obránce Matthewa Schaefera úplně nový rozměr. Teenager ve službách New York Islanders jako první hráč v NHL odbruslil kompletních pět minut prodloužení tři na tři a navrch si vytvořil osobní rekord, když v Nashvillu (4:3 po nájezdech) zvládl celkem 32:16 minuty.",
+    "source": "Sport.cz",
+    "category": "sport"
+  },
+  {
+    "title": "Násilný vztah skončil, strach zůstal. Lucii minulost komplikuje život s novým partnerem",
+    "link": "https://www.novinky.cz/clanek/podcasty-verim-ti-nasilny-vztah-skoncil-strach-zustal-lucii-minulost-komplikuje-zivot-s-novym-partnerem-40604084",
+    "pubDate": "Wed, 28 Oct 2026 09:11:00 +0100",
+    "contentSnippet": "Lucie si prošla vztahem, který se postupně změnil v noční můru. Ani po rozchodu ale násilí neskončilo. Bývalý partner ji pronásledoval a vyhrožoval zveřejněním intimních fotografií. Později se u ní objevila posttraumatická stresová porucha, která jí komplikovala život. O jejím příběhu jsme na Novinkách psali minulý týden. Pokračování svého vyprávění sdílí v rámci podcastu Nejseš sám, projektu Věřím ti.",
+    "source": "Novinky Sport",
+    "category": "sport"
+  },
+  {
+    "title": "Krbová kamna bez starostí",
+    "link": "https://www.novinky.cz/clanek/bydleni-krbova-kamna-bez-starosti-40602995",
+    "pubDate": "Wed, 28 Oct 2026 09:08:00 +0100",
+    "contentSnippet": "Praskající dřevo, příjemné sálavé teplo a pohled do plamenů – krbová kamna vytvářejí atmosféru, kterou žádný jiný zdroj vytápění nenahradí. Patří mezi nejrychlejší způsoby, jak doplnit vytápění rodinného domu, chalupy nebo chaty.",
+    "source": "Novinky Sport",
+    "category": "sport"
+  },
+  {
+    "title": "ANTOŠOVA BŘITVA: Kladenské duo udivuje snad úplně všechny",
+    "link": "https://www.sport.cz/clanek/nazory-komentare-antosova-britva-kladenske-duo-udivuje-snad-uplne-vsechny-5564843",
+    "pubDate": "Wed, 28 Oct 2026 09:00:35 +0100",
+    "contentSnippet": "V Tipsport extralize se ve větší míře začínají prosazovat cizinci. Není novinkou, že všechny kluby už dlouhodobě hledají za hranicemi hvězdné hokejisty, kteří by týmy táhli. Přijde mi, že v probíhající sezoně jsou tito hráči opravdu vidět.",
+    "source": "Sport.cz",
+    "category": "sport"
+  },
+  {
+    "title": "Politici si na Vítkově připomínají vznik samostatného státu",
+    "link": "https://www.novinky.cz/clanek/domaci-politici-si-na-vitkove-pripominaji-vznik-samostatneho-statu-40605333",
+    "pubDate": "Wed, 28 Oct 2026 09:00:02 +0100",
+    "contentSnippet": "Oslavy dne vzniku samostatného Československa zahájili ve středu vrcholní představitelé státu položením věnců k památníku na pražském Vítkově. Již 108. výročí si připomněli například prezident Petr Pavel, premiér Andrej Babiš (ANO), předseda Senátu Miloš Vystrčil, ministr obrany Jaromír Zůna (za SPD) i náčelník generálního štábu Miroslav Hlaváč. Pietní akt nabídly Novinky živě.",
+    "source": "Novinky Sport",
+    "category": "sport"
+  }
+];
+const category = {"id":"sport","name":"Sport","icon":"⚽"};
+---
+
+<Layout title="Sport – News" category={category}>
+  <ArticleList articles={articles} />
+</Layout>

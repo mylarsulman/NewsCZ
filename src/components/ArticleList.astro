@@ -1,0 +1,43 @@
+---
+interface Props {
+  articles: Array<{
+    title: string;
+    link: string;
+    pubDate: string;
+    contentSnippet: string;
+    source: string;
+    category: string;
+  }>;
+}
+const { articles } = Astro.props;
+---
+<div class="articles-grid" role="list" aria-label="Seznam článků">
+  {articles.map((article, index) => (
+    <article class="article-card" role="listitem">
+      <a href={article.link} target="_blank" rel="noopener noreferrer" class="article-link" style="display: contents;">
+        <div class="article-image skeleton" aria-hidden="true"></div>
+        <div class="article-content">
+          <div class="article-meta">
+            <span class="article-source">{article.source}</span>
+            <time class="article-time" dateTime={new Date(article.pubDate).toISOString()}>
+              {new Date(article.pubDate).toLocaleString('cs-CZ', { 
+                day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' 
+              })}
+            </time>
+          </div>
+          <h2 class="article-title">{article.title}</h2>
+          <p class="article-excerpt">{article.contentSnippet?.slice(0, 200) || 'Bez popisu'}</p>
+        </div>
+      </a>
+    </article>
+  ))}
+</div>
+
+<script is:inline>
+  // Lazy load images if we add them later
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.article-image.skeleton').forEach(el => {
+      el.classList.remove('skeleton');
+    });
+  });
+</script>

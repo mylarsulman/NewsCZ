@@ -1,0 +1,445 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ArticleList from '../components/ArticleList.astro';
+import CategoryNav from '../components/CategoryNav.astro';
+
+const articles = [
+  {
+    "title": "Srazily se španělské rychlovlaky. Vagony spadly z náspu, obětí je 50",
+    "link": "https://www.idnes.cz/zpravy/zahranicni/spanelsko-vlaky-toledo-nehoda.A261028_095329_zahranicni_jhr#utm_source=rss&utm_medium=feed&utm_campaign=zahranicni&utm_content=main",
+    "pubDate": "Wed, 28 Oct 2026 10:46:38 GMT",
+    "contentSnippet": "Srážka dvou vysokorychlostních vlaků ve Španělsku si vyžádala 60 obětí. Dalších nejméně 179 lidí utrpělo zranění. K nehodě došlo na klíčové trati spojující hlavní město Madrid s Andalusií. Stala se krátce před devátou hodinou ranní mezi obcemi Los Yébenes a Urda, kde do sebe narazily dvě plně obsazené soupravy.",
+    "source": "iDNES Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Hlaváč povýšil na armádního generála. Prezident Pavel rozdal nové hodnosti",
+    "link": "https://www.novinky.cz/clanek/domaci-hlavac-povysil-na-armadniho-generala-prezident-pavel-rozdal-nove-hodnosti-40605347",
+    "pubDate": "Wed, 28 Oct 2026 11:42:17 +0100",
+    "contentSnippet": "Náčelník generálního štábu Miroslav Hlaváč se od středy může pyšnit hodností armádního generála. Při příležitosti výročí vzniku samostatného Československa ho do nejvyšší armádní hodnosti povýšil prezident Petr Pavel. Povýšení se dočkalo celkem 16 mužů, mezi nimi i šéf vězeňské služby Tomáš Hůlka, který se stal generálporučíkem.",
+    "source": "Novinky.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Hlaváč povýšil na armádního generála. Prezident Pavel rozdal nové hodnosti",
+    "link": "https://www.novinky.cz/clanek/domaci-hlavac-povysil-na-armadniho-generala-prezident-pavel-rozdal-nove-hodnosti-40605347",
+    "pubDate": "Wed, 28 Oct 2026 11:42:17 +0100",
+    "contentSnippet": "Náčelník generálního štábu Miroslav Hlaváč se od středy může pyšnit hodností armádního generála. Při příležitosti výročí vzniku samostatného Československa ho do nejvyšší armádní hodnosti povýšil prezident Petr Pavel. Povýšení se dočkalo celkem 16 mužů, mezi nimi i šéf vězeňské služby Tomáš Hůlka, který se stal generálporučíkem.",
+    "source": "Novinky Sport",
+    "category": "sport"
+  },
+  {
+    "title": "Hlaváč povýšil na armádního generála. Prezident Pavel rozdal nové hodnosti",
+    "link": "https://www.novinky.cz/clanek/domaci-hlavac-povysil-na-armadniho-generala-prezident-pavel-rozdal-nove-hodnosti-40605347",
+    "pubDate": "Wed, 28 Oct 2026 11:42:17 +0100",
+    "contentSnippet": "Náčelník generálního štábu Miroslav Hlaváč se od středy může pyšnit hodností armádního generála. Při příležitosti výročí vzniku samostatného Československa ho do nejvyšší armádní hodnosti povýšil prezident Petr Pavel. Povýšení se dočkalo celkem 16 mužů, mezi nimi i šéf vězeňské služby Tomáš Hůlka, který se stal generálporučíkem.",
+    "source": "Novinky Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Hlaváč povýšil na armádního generála. Prezident Pavel rozdal nové hodnosti",
+    "link": "https://www.novinky.cz/clanek/domaci-hlavac-povysil-na-armadniho-generala-prezident-pavel-rozdal-nove-hodnosti-40605347",
+    "pubDate": "Wed, 28 Oct 2026 11:42:17 +0100",
+    "contentSnippet": "Náčelník generálního štábu Miroslav Hlaváč se od středy může pyšnit hodností armádního generála. Při příležitosti výročí vzniku samostatného Československa ho do nejvyšší armádní hodnosti povýšil prezident Petr Pavel. Povýšení se dočkalo celkem 16 mužů, mezi nimi i šéf vězeňské služby Tomáš Hůlka, který se stal generálporučíkem.",
+    "source": "Novinky Kultura",
+    "category": "kultura"
+  },
+  {
+    "title": "Zelenskyj s Putinem se mohou brzy setkat, řekl Trump. Kreml slíbil bezpečnostní záruky",
+    "link": "https://www.idnes.cz/zpravy/zahranicni/putin-a-zelenskyj-by-se-podle-trumpa-mohli-velmi-brzy-setkat.A261028_084701_zahranicni_remy#utm_source=rss&utm_medium=feed&utm_campaign=zpravodaj&utm_content=main",
+    "pubDate": "Wed, 28 Oct 2026 10:39:58 GMT",
+    "contentSnippet": "Ruský prezident Vladimir Putin a jeho ukrajinský protějšek Volodymyr Zelenskyj by se velmi brzy mohli sejít. Novinářům to bez upřesnění řekl americký prezident Donald Trump. Kremelský poradce Jurij Ušakov předtím sdělil, že Rusko nabízí Zelenskému bezpečnostní záruky výhradně pro případ, že by přicestoval přímo do Moskvy na osobní mírová jednání s Putinem.",
+    "source": "iDNES.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Zelenskyj s Putinem se mohou brzy setkat, řekl Trump. Kreml slíbil bezpečnostní záruky",
+    "link": "https://www.idnes.cz/zpravy/zahranicni/putin-a-zelenskyj-by-se-podle-trumpa-mohli-velmi-brzy-setkat.A261028_084701_zahranicni_remy#utm_source=rss&utm_medium=feed&utm_campaign=zahranicni&utm_content=main",
+    "pubDate": "Wed, 28 Oct 2026 10:39:58 GMT",
+    "contentSnippet": "Ruský prezident Vladimir Putin a jeho ukrajinský protějšek Volodymyr Zelenskyj by se velmi brzy mohli sejít. Novinářům to bez upřesnění řekl americký prezident Donald Trump. Kremelský poradce Jurij Ušakov předtím sdělil, že Rusko nabízí Zelenskému bezpečnostní záruky výhradně pro případ, že by přicestoval přímo do Moskvy na osobní mírová jednání s Putinem.",
+    "source": "iDNES Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Přehled vyznamenání. Řád bílého lva mohou Češi obdržet jen dva dny v roce",
+    "link": "https://www.seznamzpravy.cz/clanek/domaci-politika-rad-bileho-lva-tgm-medaile-hrdinstvi-zasluhy-318925",
+    "pubDate": "Wed, 28 Oct 2026 11:39:45 +0100",
+    "contentSnippet": "Prezident Petr Pavel při každoroční ceremonii na Hradě udělí nebo propůjčí státní vyznamenání. Jaká ocenění mohou lidé obdržet?",
+    "source": "Seznam Zprávy",
+    "category": "domaci"
+  },
+  {
+    "title": "Letectvo nad Prahou a piety. Pavel udělil nejvyšší hodnost, povýšil dvakrát víc lidí",
+    "link": "https://www.idnes.cz/zpravy/domaci/28-rijna-svatek-akce-vyznamenani-slavnosti-senat-snemovna-strakova-akademie-obchody-prezident-petr-p.A261022_144341_domaci_linh#utm_source=rss&utm_medium=feed&utm_campaign=zpravodaj&utm_content=main",
+    "pubDate": "Wed, 28 Oct 2026 10:37:00 GMT",
+    "contentSnippet": "Prezident Petr Pavel u příležitosti 108. výročí od vzniku samostatného Československa na Pražském hradě jmenoval náčelníka generálního štábu Miroslava Hlaváče do hodnosti armádního generála. Jde o nejvyšší hodnost v české armádě. Sváteční program předtím zahájil účastí na pietním aktu u Národního památníku na pražském Vítkově, kterého se zúčastnil také premiér Andrej Babiš (ANO), předseda Senátu Miloš Vystrčil nebo šéf Poslanecké sněmovny Tomio Okamura (SPD).",
+    "source": "iDNES.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Povolební Izrael postrádá vítěze. Změnu i demokracii podkopává odmítání arabských hlasů",
+    "link": "https://denikn.cz/2235984/povolebni-izrael-postrada-viteze-zmenu-i-demokracii-podkopava-odmitani-arabskych-hlasu/",
+    "pubDate": "Wed, 28 Oct 2026 10:33:28 +0000",
+    "contentSnippet": "Analýza: Izraelské volby jsou možná u konce, co se týče samotného hlasování, soutěž o to, kdo zemi do budoucna povede a jak bude další vláda vypadat, ale ještě rozhodně neskončila.",
+    "source": "Deník N",
+    "category": "domaci"
+  },
+  {
+    "title": "Opilý řidič u Prahy naboural do stromu. Auto začalo hořet",
+    "link": "https://www.novinky.cz/clanek/domaci-opily-ridic-u-prahy-naboural-do-stromu-auto-zacalo-horet-40605346",
+    "pubDate": "Wed, 28 Oct 2026 11:27:21 +0100",
+    "contentSnippet": "Ve středu dopoledne shořelo osobní auto po nárazu do stromu u Chotče na Praze-západ. Řidič, který má platný zákaz řízení, byl pod vlivem alkoholu. Dva lidé jsou po nehodě lehce zranění.",
+    "source": "Novinky.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Opilý řidič u Prahy naboural do stromu. Auto začalo hořet",
+    "link": "https://www.novinky.cz/clanek/domaci-opily-ridic-u-prahy-naboural-do-stromu-auto-zacalo-horet-40605346",
+    "pubDate": "Wed, 28 Oct 2026 11:27:21 +0100",
+    "contentSnippet": "Ve středu dopoledne shořelo osobní auto po nárazu do stromu u Chotče na Praze-západ. Řidič, který má platný zákaz řízení, byl pod vlivem alkoholu. Dva lidé jsou po nehodě lehce zranění.",
+    "source": "Novinky Sport",
+    "category": "sport"
+  },
+  {
+    "title": "Opilý řidič u Prahy naboural do stromu. Auto začalo hořet",
+    "link": "https://www.novinky.cz/clanek/domaci-opily-ridic-u-prahy-naboural-do-stromu-auto-zacalo-horet-40605346",
+    "pubDate": "Wed, 28 Oct 2026 11:27:21 +0100",
+    "contentSnippet": "Ve středu dopoledne shořelo osobní auto po nárazu do stromu u Chotče na Praze-západ. Řidič, který má platný zákaz řízení, byl pod vlivem alkoholu. Dva lidé jsou po nehodě lehce zranění.",
+    "source": "Novinky Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Opilý řidič u Prahy naboural do stromu. Auto začalo hořet",
+    "link": "https://www.novinky.cz/clanek/domaci-opily-ridic-u-prahy-naboural-do-stromu-auto-zacalo-horet-40605346",
+    "pubDate": "Wed, 28 Oct 2026 11:27:21 +0100",
+    "contentSnippet": "Ve středu dopoledne shořelo osobní auto po nárazu do stromu u Chotče na Praze-západ. Řidič, který má platný zákaz řízení, byl pod vlivem alkoholu. Dva lidé jsou po nehodě lehce zranění.",
+    "source": "Novinky Kultura",
+    "category": "kultura"
+  },
+  {
+    "title": "Na ulici v Klatovech ležela krajta. Venku mohla uhynout",
+    "link": "https://www.novinky.cz/clanek/koktejl-na-ulici-v-klatovech-lezela-krajta-venku-mohla-uhynout-40605332",
+    "pubDate": "Wed, 28 Oct 2026 11:25:28 +0100",
+    "contentSnippet": "Asi půlroční krajtou královskou odchytli nedaleko klatovské synagogy strážníci. Následně ji odvezli do místního zverimexu. Jeho majitel Tadeáš Krobot upozornil, že had mohl při současných nízkých teplotách uhynout.",
+    "source": "Novinky.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Na ulici v Klatovech ležela krajta. Venku mohla uhynout",
+    "link": "https://www.novinky.cz/clanek/koktejl-na-ulici-v-klatovech-lezela-krajta-venku-mohla-uhynout-40605332",
+    "pubDate": "Wed, 28 Oct 2026 11:25:28 +0100",
+    "contentSnippet": "Asi půlroční krajtou královskou odchytli nedaleko klatovské synagogy strážníci. Následně ji odvezli do místního zverimexu. Jeho majitel Tadeáš Krobot upozornil, že had mohl při současných nízkých teplotách uhynout.",
+    "source": "Novinky Sport",
+    "category": "sport"
+  },
+  {
+    "title": "Na ulici v Klatovech ležela krajta. Venku mohla uhynout",
+    "link": "https://www.novinky.cz/clanek/koktejl-na-ulici-v-klatovech-lezela-krajta-venku-mohla-uhynout-40605332",
+    "pubDate": "Wed, 28 Oct 2026 11:25:28 +0100",
+    "contentSnippet": "Asi půlroční krajtou královskou odchytli nedaleko klatovské synagogy strážníci. Následně ji odvezli do místního zverimexu. Jeho majitel Tadeáš Krobot upozornil, že had mohl při současných nízkých teplotách uhynout.",
+    "source": "Novinky Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Na ulici v Klatovech ležela krajta. Venku mohla uhynout",
+    "link": "https://www.novinky.cz/clanek/koktejl-na-ulici-v-klatovech-lezela-krajta-venku-mohla-uhynout-40605332",
+    "pubDate": "Wed, 28 Oct 2026 11:25:28 +0100",
+    "contentSnippet": "Asi půlroční krajtou královskou odchytli nedaleko klatovské synagogy strážníci. Následně ji odvezli do místního zverimexu. Jeho majitel Tadeáš Krobot upozornil, že had mohl při současných nízkých teplotách uhynout.",
+    "source": "Novinky Kultura",
+    "category": "kultura"
+  },
+  {
+    "title": "Z nájmu se stalo dlouhodobé řešení. Poptávka roste i po větších bytech, říká šéfka velkého pronajímatele",
+    "link": "https://www.novinky.cz/clanek/ekonomika-z-najmu-se-stalo-dlouhodobe-reseni-poptavka-roste-i-po-vetsich-bytech-rika-sefka-velkeho-pronajimatele-40604582",
+    "pubDate": "Wed, 28 Oct 2026 11:21:58 +0100",
+    "contentSnippet": "Stále více Čechů bydlí v pronajatém bytě. Rostoucí poptávky se snaží využít i developeři, kteří začali stavět celé nové nájemní domy. Největším hráčem na tomto trhu je dlouhodobě původem izraelská společnost AFI. Karin Shalev Shogol, generální ředitelka společnosti pro Česko, pro Novinky uvedla, že firmu nyní láká výstavba čtvrtí se stovkami bytů.",
+    "source": "Novinky.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Z nájmu se stalo dlouhodobé řešení. Poptávka roste i po větších bytech, říká šéfka velkého pronajímatele",
+    "link": "https://www.novinky.cz/clanek/ekonomika-z-najmu-se-stalo-dlouhodobe-reseni-poptavka-roste-i-po-vetsich-bytech-rika-sefka-velkeho-pronajimatele-40604582",
+    "pubDate": "Wed, 28 Oct 2026 11:21:58 +0100",
+    "contentSnippet": "Stále více Čechů bydlí v pronajatém bytě. Rostoucí poptávky se snaží využít i developeři, kteří začali stavět celé nové nájemní domy. Největším hráčem na tomto trhu je dlouhodobě původem izraelská společnost AFI. Karin Shalev Shogol, generální ředitelka společnosti pro Česko, pro Novinky uvedla, že firmu nyní láká výstavba čtvrtí se stovkami bytů.",
+    "source": "Novinky Sport",
+    "category": "sport"
+  },
+  {
+    "title": "Z nájmu se stalo dlouhodobé řešení. Poptávka roste i po větších bytech, říká šéfka velkého pronajímatele",
+    "link": "https://www.novinky.cz/clanek/ekonomika-z-najmu-se-stalo-dlouhodobe-reseni-poptavka-roste-i-po-vetsich-bytech-rika-sefka-velkeho-pronajimatele-40604582",
+    "pubDate": "Wed, 28 Oct 2026 11:21:58 +0100",
+    "contentSnippet": "Stále více Čechů bydlí v pronajatém bytě. Rostoucí poptávky se snaží využít i developeři, kteří začali stavět celé nové nájemní domy. Největším hráčem na tomto trhu je dlouhodobě původem izraelská společnost AFI. Karin Shalev Shogol, generální ředitelka společnosti pro Česko, pro Novinky uvedla, že firmu nyní láká výstavba čtvrtí se stovkami bytů.",
+    "source": "Novinky Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Z nájmu se stalo dlouhodobé řešení. Poptávka roste i po větších bytech, říká šéfka velkého pronajímatele",
+    "link": "https://www.novinky.cz/clanek/ekonomika-z-najmu-se-stalo-dlouhodobe-reseni-poptavka-roste-i-po-vetsich-bytech-rika-sefka-velkeho-pronajimatele-40604582",
+    "pubDate": "Wed, 28 Oct 2026 11:21:58 +0100",
+    "contentSnippet": "Stále více Čechů bydlí v pronajatém bytě. Rostoucí poptávky se snaží využít i developeři, kteří začali stavět celé nové nájemní domy. Největším hráčem na tomto trhu je dlouhodobě původem izraelská společnost AFI. Karin Shalev Shogol, generální ředitelka společnosti pro Česko, pro Novinky uvedla, že firmu nyní láká výstavba čtvrtí se stovkami bytů.",
+    "source": "Novinky Kultura",
+    "category": "kultura"
+  },
+  {
+    "title": "Agresivní vězeň na Borech napadl strážné, tři z nich skončili v nemocnici",
+    "link": "https://www.idnes.cz/plzen/zpravy/vezen-napadeni-veznice-plzen-strazni-zraneni.A261028_110811_plzen-zpravy_mikp#utm_source=rss&utm_medium=feed&utm_campaign=zpravodaj&utm_content=main",
+    "pubDate": "Wed, 28 Oct 2026 10:20:00 GMT",
+    "contentSnippet": "Odsouzený muž napadl v noci na dnešek ve věznici v Plzni na Borech strážné. U incidentu, na který upozornil web Novinky.cz, zasahovala záchranná služba, která odvezla tři lidi s lehkým zraněním, řekli ve středu mluvčí vězeňské služby Markéta Prunerová a mluvčí krajské záchranné služby Luboš Bouček.",
+    "source": "iDNES.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Z kanadského pekla rovnou k výhře. Devils už těží z Hellebuyckova útěku a rádi by další hvězdu",
+    "link": "https://www.sport.cz/clanek/hokej-nhl-z-kanadskeho-pekla-rovnou-k-vyhre-devils-uz-tezi-z-hellebuyckova-uteku-a-radi-by-dalsi-hvezdu-5564874",
+    "pubDate": "Wed, 28 Oct 2026 11:19:26 +0100",
+    "contentSnippet": "Hele ho! Jen čtyři dny po výměně z Winnipegu získal americký gólman Connor Hellebuyck v NHL svou první výhru v dresu New Jersey. Fanoušci Devils po výsledku 5:1 na ledě silného Dallasu propadají euforii. Konečně zase máme tým na Stanley Cup.",
+    "source": "Sport.cz",
+    "category": "sport"
+  },
+  {
+    "title": "Slovák dal ranec za El Clásico, pak doplatil na válku odvěkých rivalů",
+    "link": "https://www.sport.cz/clanek/fotbal-la-liga-slovak-dal-ranec-za-el-clasico-pak-doplatil-na-valku-znepratelenych-rivalu-5564872",
+    "pubDate": "Wed, 28 Oct 2026 11:19:23 +0100",
+    "contentSnippet": "Měl to být nezapomenutelný dárek k synovým osmnáctinám, místo toho přišlo obrovské zklamání. Slovenský fanoušek Realu Madrid zaplatil za čtyři vstupenky na El Clásico zhruba 130 tisíc korun. Po oslavě gólu Kyliana Mbappého ho ale společně se synem vyvedla ze stadionu ochranka. Zbytek utkání pak sledovali na mobilu v taxíku.",
+    "source": "Sport.cz",
+    "category": "sport"
+  },
+  {
+    "title": "Štípe vás nos, v nemocnicích čekáte roboty. České tenistky líčí čínskou realitu",
+    "link": "https://sport.aktualne.cz/tenis/stipe-vas-nos-v-nemocnicich-cekate-roboty-ceske-tenistky-lici-cinskou-realitu/r~aaa29ea6d917a7de782446e9ef9f413b/",
+    "pubDate": "Wed, 28 Oct 2026 11:11:00 +0100",
+    "contentSnippet": "Je to možná ta nejméně oblíbená pasáž z celé tenisové sezony pro všechny hráče a hráčky. Asijská tour turnajů vrcholí, hvězdy kurtů ždímají poslední síly a snáší úskalí specifických destinací. České tenistky Lucie Hradecká a Klára Koukalová popsaly zážitky z čínských turnajů.",
+    "source": "Aktuálně.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Štípe vás nos, v nemocnicích čekáte roboty. České tenistky líčí čínskou realitu",
+    "link": "https://sport.aktualne.cz/tenis/stipe-vas-nos-v-nemocnicich-cekate-roboty-ceske-tenistky-lici-cinskou-realitu/r~aaa29ea6d917a7de782446e9ef9f413b/",
+    "pubDate": "Wed, 28 Oct 2026 11:11:00 +0100",
+    "contentSnippet": "Je to možná ta nejméně oblíbená pasáž z celé tenisové sezony pro všechny hráče a hráčky. Asijská tour turnajů vrcholí, hvězdy kurtů ždímají poslední síly a snáší úskalí specifických destinací. České tenistky Lucie Hradecká a Klára Koukalová popsaly zážitky z čínských turnajů.",
+    "source": "Aktuálně Sport",
+    "category": "sport"
+  },
+  {
+    "title": "„Zajímavý chaos.“ Úřady práce hrnou papírování s klienty na neziskovky",
+    "link": "https://www.seznamzpravy.cz/clanek/domaci-zivot-v-cesku-zajimavy-chaos-urady-prace-hrnou-papirovani-s-klienty-na-neziskovky-318636",
+    "pubDate": "Wed, 28 Oct 2026 11:10:52 +0100",
+    "contentSnippet": "Přibývají situace, kdy státní úředníci posílají žadatele o dávky s problémy za neziskovými organizacemi. Razítko od poradny představuje důkaz, že se lidé snaží svojí situaci řešit.",
+    "source": "Seznam Zprávy",
+    "category": "domaci"
+  },
+  {
+    "title": "Photon Energy ji prodala během insolvenčního řízení. Teď padla a v majetku jí zůstala Tesla a miliony v mlze",
+    "link": "https://www.e15.cz/byznys/prumysl-a-energetika/photon-energy-ji-prodala-behem-insolvencniho-rizeni-ted-padla-a-v-majetku-ji-zustala-tesla-a-miliony-v-mlze-1436909",
+    "pubDate": "Wed, 28 Oct 2026 11:00:00 +0100",
+    "contentSnippet": "Rychlý prodej do Švýcarska nepomohl. \nZadlužená servisní firma Photon Energy skončila v úpadku.\nNový majitel navíc nedokázal řádně předložit evidenci majetku.",
+    "source": "E15.cz",
+    "category": "ekonomika"
+  },
+  {
+    "title": "Vagón vyletěl do vzduchu, bylo to brutální. Svědci popsali tragickou nehodu vlaků ve Španělsku",
+    "link": "https://www.novinky.cz/clanek/zahranicni-evropa-vagon-vyletel-do-vzduchu-svedek-popsal-tragickou-nehodu-vlaku-ve-spanelsku-40605345",
+    "pubDate": "Wed, 28 Oct 2026 10:59:21 +0100",
+    "contentSnippet": "Přišel obrovský náraz, při kterém jeden z vagónů vylétl do vzduchu, popsal středeční nehodu dvou vysokorychlostních vlaků cestující Miguel Ángel Pérez Laguna, který pracuje ve španělské stanici Capital Radio. Další cestující Jesús Jerónimo uvedl, že incident byl brutální. Lidi podle něj srážka vlaků vymrštila ze sedadel. Nehoda si prozatím vyžádala nejméně 50 lidských životů, dalších 179 osob bylo zraněno.",
+    "source": "Novinky.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Vagón vyletěl do vzduchu, bylo to brutální. Svědci popsali tragickou nehodu vlaků ve Španělsku",
+    "link": "https://www.novinky.cz/clanek/zahranicni-evropa-vagon-vyletel-do-vzduchu-svedek-popsal-tragickou-nehodu-vlaku-ve-spanelsku-40605345",
+    "pubDate": "Wed, 28 Oct 2026 10:59:21 +0100",
+    "contentSnippet": "Přišel obrovský náraz, při kterém jeden z vagónů vylétl do vzduchu, popsal středeční nehodu dvou vysokorychlostních vlaků cestující Miguel Ángel Pérez Laguna, který pracuje ve španělské stanici Capital Radio. Další cestující Jesús Jerónimo uvedl, že incident byl brutální. Lidi podle něj srážka vlaků vymrštila ze sedadel. Nehoda si prozatím vyžádala nejméně 50 lidských životů, dalších 179 osob bylo zraněno.",
+    "source": "Novinky Sport",
+    "category": "sport"
+  },
+  {
+    "title": "Vagón vyletěl do vzduchu, bylo to brutální. Svědci popsali tragickou nehodu vlaků ve Španělsku",
+    "link": "https://www.novinky.cz/clanek/zahranicni-evropa-vagon-vyletel-do-vzduchu-svedek-popsal-tragickou-nehodu-vlaku-ve-spanelsku-40605345",
+    "pubDate": "Wed, 28 Oct 2026 10:59:21 +0100",
+    "contentSnippet": "Přišel obrovský náraz, při kterém jeden z vagónů vylétl do vzduchu, popsal středeční nehodu dvou vysokorychlostních vlaků cestující Miguel Ángel Pérez Laguna, který pracuje ve španělské stanici Capital Radio. Další cestující Jesús Jerónimo uvedl, že incident byl brutální. Lidi podle něj srážka vlaků vymrštila ze sedadel. Nehoda si prozatím vyžádala nejméně 50 lidských životů, dalších 179 osob bylo zraněno.",
+    "source": "Novinky Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Vagón vyletěl do vzduchu, bylo to brutální. Svědci popsali tragickou nehodu vlaků ve Španělsku",
+    "link": "https://www.novinky.cz/clanek/zahranicni-evropa-vagon-vyletel-do-vzduchu-svedek-popsal-tragickou-nehodu-vlaku-ve-spanelsku-40605345",
+    "pubDate": "Wed, 28 Oct 2026 10:59:21 +0100",
+    "contentSnippet": "Přišel obrovský náraz, při kterém jeden z vagónů vylétl do vzduchu, popsal středeční nehodu dvou vysokorychlostních vlaků cestující Miguel Ángel Pérez Laguna, který pracuje ve španělské stanici Capital Radio. Další cestující Jesús Jerónimo uvedl, že incident byl brutální. Lidi podle něj srážka vlaků vymrštila ze sedadel. Nehoda si prozatím vyžádala nejméně 50 lidských životů, dalších 179 osob bylo zraněno.",
+    "source": "Novinky Kultura",
+    "category": "kultura"
+  },
+  {
+    "title": "Přelstil nacisty a zachránil tisíce životů. Místo vděku čekal konzula kriminál",
+    "link": "https://magazin.aktualne.cz/prelstil-nacisty-a-zachranil-tisice-zivotu-misto-vdeku-cekal-konzula-lagr-ve-valdicich/r~aaa29aa118c3d09526096c66d8d1e618/",
+    "pubDate": "Wed, 28 Oct 2026 10:59:00 +0100",
+    "contentSnippet": "V USA, Francii i Izraeli patří k uctívaným zachráncům, na Pražském hradě jeho jméno při státních vyznamenáních ještě nezaznělo. Diplomat Vladimír Vochoč v Marseille během druhé světové války přelstil gestapo, tiskl falešné růžové pasy a zachránil dva a půl tisíce životů. Místo díků ho komunisté poslali do lágru. Příběh zapomenutého hrdiny je doslova strhující.",
+    "source": "Aktuálně.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Mussoliniho pravnuk udeřil v Serii A. Trefil se na den přesně tragického výročí",
+    "link": "https://www.sport.cz/clanek/fotbal-serie-a-mussoliniho-pravnuk-uderil-v-serii-a-trefil-se-na-den-presne-tragickeho-vyroci-5564871",
+    "pubDate": "Wed, 28 Oct 2026 10:58:30 +0100",
+    "contentSnippet": "Příjmení, které nejen v Itálii stále budí emoce. Premiérový gól v Serii A si připsal obránce Lazia Romano Floriani Mussolini. Pravnuk fašistického diktátora Benita Mussoliniho jím přispěl k vysoké výhře 6:2 nad Sassuolem. Světová média upozorňují, že se trefil na den přesně na 104. výročí pochodu na Řím, který pomohl jeho pradědovi dostat se k moci.",
+    "source": "Sport.cz",
+    "category": "sport"
+  },
+  {
+    "title": "Volby v Izraeli: vzestup Arabů vyšachovává velké bloky do patové situace",
+    "link": "https://www.idnes.cz/zpravy/zahranicni/po-secteni-42-procent-hlasu-vede-v-izraelskych-volbach-vladni-blok-pise-web.A261028_070420_zahranicni_remy#utm_source=rss&utm_medium=feed&utm_campaign=zpravodaj&utm_content=main",
+    "pubDate": "Wed, 28 Oct 2026 09:57:44 GMT",
+    "contentSnippet": "Po sečtení více než tří čtvrtin hlasů odevzdaných v úterních izraelských volbách vede blok premiéra Benjamina Netanjahua, většinu v parlamentu ale podle všeho mít nebude. Může získat 54 křesel, zatímco opoziční blok vedený Gadim Eisenkotem má zatím 47 mandátů. Rýsuje se patová situace, kdy ani jeden z bloků nemá na to, aby dosáhl většiny 61 poslanců,",
+    "source": "iDNES.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Volby v Izraeli: vzestup Arabů vyšachovává velké bloky do patové situace",
+    "link": "https://www.idnes.cz/zpravy/zahranicni/po-secteni-42-procent-hlasu-vede-v-izraelskych-volbach-vladni-blok-pise-web.A261028_070420_zahranicni_remy#utm_source=rss&utm_medium=feed&utm_campaign=zahranicni&utm_content=main",
+    "pubDate": "Wed, 28 Oct 2026 09:57:44 GMT",
+    "contentSnippet": "Po sečtení více než tří čtvrtin hlasů odevzdaných v úterních izraelských volbách vede blok premiéra Benjamina Netanjahua, většinu v parlamentu ale podle všeho mít nebude. Může získat 54 křesel, zatímco opoziční blok vedený Gadim Eisenkotem má zatím 47 mandátů. Rýsuje se patová situace, kdy ani jeden z bloků nemá na to, aby dosáhl většiny 61 poslanců,",
+    "source": "iDNES Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Vzkaz slovenských novinářů do Česka: Pokud ještě můžete zesílit svůj odpor, zesilte ho",
+    "link": "https://www.novinky.cz/clanek/kultura-tv-streaming-vzkaz-slovenskych-novinaru-do-ceska-pokud-jeste-muzete-zesilit-svuj-odpor-zesilte-ho-40605143",
+    "pubDate": "Wed, 28 Oct 2026 10:57:00 +0100",
+    "contentSnippet": "Evropskou premiéru měl na Mezinárodním festivalu dokumentárních filmů Ji.hlava slovenský film Přeladění. Snímek režisérky Sáry Prokopové popisuje postupné ovládnutí slovenské veřejnoprávní televize a rozhlasu vládními strukturami. Projekci i následnou debatu provázely emoce vyvolané nedávnými událostmi v Česku, kde se poslanci vládní strany rozhodli prosadit změnu financování veřejnoprávních médií tvrdým postupem, který je v rozporu se všemi pravidly.",
+    "source": "Novinky.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Vzkaz slovenských novinářů do Česka: Pokud ještě můžete zesílit svůj odpor, zesilte ho",
+    "link": "https://www.novinky.cz/clanek/kultura-tv-streaming-vzkaz-slovenskych-novinaru-do-ceska-pokud-jeste-muzete-zesilit-svuj-odpor-zesilte-ho-40605143",
+    "pubDate": "Wed, 28 Oct 2026 10:57:00 +0100",
+    "contentSnippet": "Evropskou premiéru měl na Mezinárodním festivalu dokumentárních filmů Ji.hlava slovenský film Přeladění. Snímek režisérky Sáry Prokopové popisuje postupné ovládnutí slovenské veřejnoprávní televize a rozhlasu vládními strukturami. Projekci i následnou debatu provázely emoce vyvolané nedávnými událostmi v Česku, kde se poslanci vládní strany rozhodli prosadit změnu financování veřejnoprávních médií tvrdým postupem, který je v rozporu se všemi pravidly.",
+    "source": "Novinky Sport",
+    "category": "sport"
+  },
+  {
+    "title": "Vzkaz slovenských novinářů do Česka: Pokud ještě můžete zesílit svůj odpor, zesilte ho",
+    "link": "https://www.novinky.cz/clanek/kultura-tv-streaming-vzkaz-slovenskych-novinaru-do-ceska-pokud-jeste-muzete-zesilit-svuj-odpor-zesilte-ho-40605143",
+    "pubDate": "Wed, 28 Oct 2026 10:57:00 +0100",
+    "contentSnippet": "Evropskou premiéru měl na Mezinárodním festivalu dokumentárních filmů Ji.hlava slovenský film Přeladění. Snímek režisérky Sáry Prokopové popisuje postupné ovládnutí slovenské veřejnoprávní televize a rozhlasu vládními strukturami. Projekci i následnou debatu provázely emoce vyvolané nedávnými událostmi v Česku, kde se poslanci vládní strany rozhodli prosadit změnu financování veřejnoprávních médií tvrdým postupem, který je v rozporu se všemi pravidly.",
+    "source": "Novinky Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Vzkaz slovenských novinářů do Česka: Pokud ještě můžete zesílit svůj odpor, zesilte ho",
+    "link": "https://www.novinky.cz/clanek/kultura-tv-streaming-vzkaz-slovenskych-novinaru-do-ceska-pokud-jeste-muzete-zesilit-svuj-odpor-zesilte-ho-40605143",
+    "pubDate": "Wed, 28 Oct 2026 10:57:00 +0100",
+    "contentSnippet": "Evropskou premiéru měl na Mezinárodním festivalu dokumentárních filmů Ji.hlava slovenský film Přeladění. Snímek režisérky Sáry Prokopové popisuje postupné ovládnutí slovenské veřejnoprávní televize a rozhlasu vládními strukturami. Projekci i následnou debatu provázely emoce vyvolané nedávnými událostmi v Česku, kde se poslanci vládní strany rozhodli prosadit změnu financování veřejnoprávních médií tvrdým postupem, který je v rozporu se všemi pravidly.",
+    "source": "Novinky Kultura",
+    "category": "kultura"
+  },
+  {
+    "title": "Fenerbahce po odchodu trenéra Kartala dočasně povede asistent Kuijt",
+    "link": "https://www.sport.cz/clanek/fotbal-fenerbahce-po-odchodu-trenera-kartala-docasne-povede-asistent-kuijt-5564873",
+    "pubDate": "Wed, 28 Oct 2026 10:56:52 +0100",
+    "contentSnippet": "Fotbalisty Fenerbahce po odstoupení trenéra Ismaila Kartala dočasně povede dosavadní asistent a bývalý nizozemský reprezentant Dirk Kuijt. Istanbulský celek o tom informoval na webu.",
+    "source": "Sport.cz",
+    "category": "sport"
+  },
+  {
+    "title": "Ve Španělsku se srazily vysokorychlostní vlaky. Zemřelo nejméně deset lidí",
+    "link": "https://www.e15.cz/zahranicni/ve-spanelsku-se-srazily-vysokorychlostni-vlaky-zemrelo-nejmene-deset-lidi-1436913",
+    "pubDate": "Wed, 28 Oct 2026 10:50:00 +0100",
+    "contentSnippet": "Ve Španělsku se ve středu ráno srazily dva vysokorychlostní vlaky.\nPři nehodě zemřelo minimálně deset lidí.\nSrážku mohly způsobit chybné pokyny z řídicího centra.",
+    "source": "E15.cz",
+    "category": "ekonomika"
+  },
+  {
+    "title": "Ve Španělsku se srazily dva rychlovlaky. Na místě je nejméně 10 mrtvých",
+    "link": "https://zpravy.aktualne.cz/zahranici/ve-spanelsku-se-srazily-dva-rychlovlaky-na-miste-je-nejmene-10-mrtvych/r~aaa29083348541a3769feb0bed9ece01/",
+    "pubDate": "Wed, 28 Oct 2026 10:47:00 +0100",
+    "contentSnippet": "Při srážce dvou vysokorychlostních vlaků v centrálním Španělsku zemřelo ve středu ráno nejméně deset lidí. S odvoláním na zdroje z vlády o tom informoval deník El País, podle něhož je nehoda velmi vážná a počet obětí může vzrůst. Další španělská média ale informují o vyšších počtech obětí. Dva vagony jednoho z vlaků vykolejily a spadly ze svahu.",
+    "source": "Aktuálně.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Otevřený headset Beyerdynamic MMX 130 wireless připojíte čtyřmi způsoby. Přes USB hraje a zároveň se nabíjí",
+    "link": "https://avmania.zive.cz/otevreny-headset-beyerdynamic-mmx-130-wireless-pripojite-ctyrmi-zpusoby-pres-usb-hraje-a-zaroven-se-nabiji",
+    "pubDate": "Wed, 28 Oct 2026 09:45:00 GMT",
+    "contentSnippet": "\r\n      ",
+    "source": "Zive.cz",
+    "category": "tech"
+  },
+  {
+    "title": "Jak vysoký má být deficit rozpočtu? Máme přece Zlaté pravidlo",
+    "link": "https://www.seznamzpravy.cz/clanek/ekonomika-ocima-byznysu-ocima-byznysu-jak-vysoky-ma-byt-deficit-rozpoctu-mame-prece-zlate-pravidlo-318751",
+    "pubDate": "Wed, 28 Oct 2026 10:43:03 +0100",
+    "contentSnippet": "Může se zdát, že na určení správné výše deficitu státního rozpočtu správná rada neexistuje. Ale „zlaté pravidlo“ už známe, potřebuje však dobrou domácí přípravu, píše v komentáři ekonom České spořitelny Michal Skořepa.",
+    "source": "Seznam Zprávy",
+    "category": "domaci"
+  },
+  {
+    "title": "Deník N slaví osm let své existence",
+    "link": "https://denikn.cz/2234554/denik-n-slavi-osm-let-sve-existence/",
+    "pubDate": "Wed, 28 Oct 2026 09:38:35 +0000",
+    "contentSnippet": "Vážení a milí přátelé, za dobu, kdy existuje Deník N (a právě dnes je to přesně těžko uvěřitelných osm let od našeho oficiálního startu), jsme společně prošli mnoha těžkými chvílemi. A obávám se, že nás v našem nebezpečném světě ještě další velké zkoušky čekají. Otřásají se i ty nejzákladnější bezpečnostní a spojenecké jistoty moderní doby. Musíme se potýkat s válečnými konflikty, mocenskými touhami autoritářů, podrýváním […]",
+    "source": "Deník N",
+    "category": "domaci"
+  },
+  {
+    "title": "Pavel, Babiš i Okamura se sešli na Vítkově. Připomněli si výročí vzniku Československa",
+    "link": "https://www.e15.cz/domaci/pavel-babis-i-okamura-se-sesli-na-vitkove-pripomneli-si-vyroci-vzniku-ceskoslovenska-1436912",
+    "pubDate": "Wed, 28 Oct 2026 10:35:00 +0100",
+    "contentSnippet": "Nejvyšší státní představitelé si připoměli výročí vzniku Československa.\nNa Vítkově při slavnostním ceremoniálu položili věnce.\nÚčastnili se také zástupci církve či váleční veteráni.",
+    "source": "E15.cz",
+    "category": "ekonomika"
+  },
+  {
+    "title": "Výrobce čipů SK Hynix zesedminásobil zisk",
+    "link": "https://www.novinky.cz/clanek/ekonomika-vyrobce-cipu-sk-hynix-zesedminasobil-zisk-40605343",
+    "pubDate": "Wed, 28 Oct 2026 10:30:03 +0100",
+    "contentSnippet": "Jihokorejský výrobce čipů SK Hynix meziročně více než zesedminásobil zisk na rekordních 83,3 bilionu wonů (1,4 bilionu korun). Dál těží z poptávky po umělé inteligenci (AI), která zvyšuje ceny paměťových čipů.",
+    "source": "Novinky.cz",
+    "category": "domaci"
+  },
+  {
+    "title": "Výrobce čipů SK Hynix zesedminásobil zisk",
+    "link": "https://www.novinky.cz/clanek/ekonomika-vyrobce-cipu-sk-hynix-zesedminasobil-zisk-40605343",
+    "pubDate": "Wed, 28 Oct 2026 10:30:03 +0100",
+    "contentSnippet": "Jihokorejský výrobce čipů SK Hynix meziročně více než zesedminásobil zisk na rekordních 83,3 bilionu wonů (1,4 bilionu korun). Dál těží z poptávky po umělé inteligenci (AI), která zvyšuje ceny paměťových čipů.",
+    "source": "Novinky Sport",
+    "category": "sport"
+  }
+];
+const categories = [
+  {
+    "id": "domaci",
+    "name": "Z domova",
+    "icon": "🏠"
+  },
+  {
+    "id": "zahranici",
+    "name": "Ze světa",
+    "icon": "🌍"
+  },
+  {
+    "id": "sport",
+    "name": "Sport",
+    "icon": "⚽"
+  },
+  {
+    "id": "ekonomika",
+    "name": "Ekonomika",
+    "icon": "💰"
+  },
+  {
+    "id": "tech",
+    "name": "Technologie",
+    "icon": "💻"
+  },
+  {
+    "id": "kultura",
+    "name": "Kultura",
+    "icon": "🎭"
+  }
+];
+---
+
+<Layout title="News – Czech agregator" category={null}>
+  <CategoryNav categories={categories} active={null} />
+  <ArticleList articles={articles} />
+</Layout>

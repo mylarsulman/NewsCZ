@@ -1,0 +1,172 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ArticleList from '../components/ArticleList.astro';
+
+const articles = [
+  {
+    "title": "Photon Energy ji prodala během insolvenčního řízení. Teď padla a v majetku jí zůstala Tesla a miliony v mlze",
+    "link": "https://www.e15.cz/byznys/prumysl-a-energetika/photon-energy-ji-prodala-behem-insolvencniho-rizeni-ted-padla-a-v-majetku-ji-zustala-tesla-a-miliony-v-mlze-1436909",
+    "pubDate": "Wed, 28 Oct 2026 11:00:00 +0100",
+    "contentSnippet": "Rychlý prodej do Švýcarska nepomohl. \nZadlužená servisní firma Photon Energy skončila v úpadku.\nNový majitel navíc nedokázal řádně předložit evidenci majetku.",
+    "source": "E15.cz",
+    "category": "ekonomika"
+  },
+  {
+    "title": "Ve Španělsku se srazily vysokorychlostní vlaky. Zemřelo nejméně deset lidí",
+    "link": "https://www.e15.cz/zahranicni/ve-spanelsku-se-srazily-vysokorychlostni-vlaky-zemrelo-nejmene-deset-lidi-1436913",
+    "pubDate": "Wed, 28 Oct 2026 10:50:00 +0100",
+    "contentSnippet": "Ve Španělsku se ve středu ráno srazily dva vysokorychlostní vlaky.\nPři nehodě zemřelo minimálně deset lidí.\nSrážku mohly způsobit chybné pokyny z řídicího centra.",
+    "source": "E15.cz",
+    "category": "ekonomika"
+  },
+  {
+    "title": "Pavel, Babiš i Okamura se sešli na Vítkově. Připomněli si výročí vzniku Československa",
+    "link": "https://www.e15.cz/domaci/pavel-babis-i-okamura-se-sesli-na-vitkove-pripomneli-si-vyroci-vzniku-ceskoslovenska-1436912",
+    "pubDate": "Wed, 28 Oct 2026 10:35:00 +0100",
+    "contentSnippet": "Nejvyšší státní představitelé si připoměli výročí vzniku Československa.\nNa Vítkově při slavnostním ceremoniálu položili věnce.\nÚčastnili se také zástupci církve či váleční veteráni.",
+    "source": "E15.cz",
+    "category": "ekonomika"
+  },
+  {
+    "title": "Svátky 2026 a otevírací doba: Kdy mají obchody zavřeno a kdy nakoupíte bez omezení?",
+    "link": "https://www.e15.cz/kdy-jsou-zavrene-obchody-statni-svatky-kdy-otevrene",
+    "pubDate": "Wed, 28 Oct 2026 09:40:00 +0100",
+    "contentSnippet": "Během vybraných svátků musí mít větší obchody zavřeno, jindy fungují normálně.\nOmezení prodeje v tyto dny je dané zákonem.\nPodívejte se, jaká je otevírací doba o svátcích v Česku a v sousedních státech.",
+    "source": "E15.cz",
+    "category": "ekonomika"
+  },
+  {
+    "title": "Otevírací doba obchodů 28. října: Kde je otevřeno a kde zavřeno?",
+    "link": "https://www.e15.cz/obchody-28-rijen-kdy-je-zavreno-otevreno-den-vzniku-ceskoslovenska",
+    "pubDate": "Wed, 28 Oct 2026 09:30:00 +0100",
+    "contentSnippet": "Ve středu 28. října 2026 se v Česku slaví státní svátek připomínající vznik samostatného Československa.\nProdejny s plochou nad 200 metrů čtverečních musí zůstat zavřené.\nPodívejte se, kde nakoupíte i v tento den a jaká je otevírací doba obchodů během ostatních svátků.",
+    "source": "E15.cz",
+    "category": "ekonomika"
+  },
+  {
+    "title": "Byty budou zdražovat pomaleji. Odborníci prozradili, zda přijde i pokles cen",
+    "link": "https://www.e15.cz/byznys/reality-a-stavebnictvi/byty-budou-zdrazovat-pomaleji-odbornici-prozradili-zda-prijde-i-pokles-cen-1436910",
+    "pubDate": "Wed, 28 Oct 2026 08:10:00 +0100",
+    "contentSnippet": "Růst cen bytů v Česku by měl oproti současnosti zpomalit.\nCelkový obrat trendu vývoje cen však očekávat nelze.\nPomalejší nnavyšování cen se projeví i u nájemního bydlení.",
+    "source": "E15.cz",
+    "category": "ekonomika"
+  },
+  {
+    "title": "Kam zmizely dva tisíce miliard? Pod Cínovcem stále leží ohromné bohatství, o němž není rozhodnuto",
+    "link": "https://www.e15.cz/nazory-a-analyzy/kam-zmizely-dva-tisice-miliard-pod-cinovcem-stale-lezi-ohromne-bohatstvi-o-nemz-neni-rozhodnuto-1436844",
+    "pubDate": "Wed, 28 Oct 2026 06:00:00 +0100",
+    "contentSnippet": "Před devíti lety se lithium stalo jedním z hlavních témat volební kampaně Andreje Babiše.\n\nÚdajnou krádež českého bohatství vystřídalo ticho. Co se s pohádkovým nalezištěm na Cínovci skutečně stalo?\n\n\nTěžba se nyní přibližuje realizaci. Klíčová otázka ale zůstává: Kolik z bájného bohatství lze skutečně získat?",
+    "source": "E15.cz",
+    "category": "ekonomika"
+  },
+  {
+    "title": "Kdo ovládne Škodu Auto? Němci skloňují první jména, vítěz zdědí i hrozbu českých stávek",
+    "link": "https://www.e15.cz/byznys/cesky-a-evropsky-autoprumysl/kdo-ovladne-skodu-auto-nemci-sklonuji-prvni-jmena-vitez-zdedi-i-hrozbu-ceskych-stavek-1436895",
+    "pubDate": "Wed, 28 Oct 2026 06:00:00 +0100",
+    "contentSnippet": "Škoda Auto proplouvá mimořádně náročným obdobím bez předsedy představenstva, výběrové řízení Volkswagenu běží naplno.\nBudoucího šéfa mladoboleslavské automobilky ovšem čeká velmi složitá práce.\nŠkoda má čelit tlaku VW na zmrazení mezd zaměstnanců, zároveň potřebuje přestavět některý ze závodů na výhradní produkci elektromobilů.",
+    "source": "E15.cz",
+    "category": "ekonomika"
+  },
+  {
+    "title": "Obdivuje jihoamerické autoritáře, za problémy viní kapitalismus a EU. Kdo je možný příští prezident Francie?",
+    "link": "https://www.e15.cz/nazory-a-analyzy/profil-jean-luc-melenchon-nepoddajna-francie-1436891",
+    "pubDate": "Wed, 28 Oct 2026 05:30:00 +0100",
+    "contentSnippet": "Lídr krajní levice Jean-Luc Mélenchon je nejpopulárnějším politikem mezi mladými Francouzi.\nČím jim kritik globalizace, kapitalismu, Izraele i evropské integrace tak imponuje?\nBusinessový newsletter 11am přináší podrobný profil politika, který má šanci postoupit do finále prezidentských voleb v příštím roce.",
+    "source": "E15.cz",
+    "category": "ekonomika"
+  },
+  {
+    "title": "Vlajkové smartphony s extrémním výkonem, které zvládnou i dlouhé pracovní cesty",
+    "link": "https://www.e15.cz/prezentace-klienta/vlajkove-smartphony-s-extremnim-vykonem-ktere-zvladnou-i-dlouhe-pracovni-cesty-1436702",
+    "pubDate": "Wed, 28 Oct 2026 00:00:00 +0100",
+    "contentSnippet": "Manažeři a profesionálové na pracovních cestách vyžadují naprostou spolehlivost. Nová vlajková řada telefonů vivo X500 odpovídá na tyto požadavky masivní baterií s kapacitou až 6750 mAh, pokročilou optikou ZEISS a nekompromisním výkonem nového 2nm procesoru.",
+    "source": "E15.cz",
+    "category": "ekonomika"
+  },
+  {
+    "title": "Ceny rýže vystřelily o 80 procent. Čeští zákazníci zatím mají jednu výhodu",
+    "link": "https://www.e15.cz/byznys/burzy-a-trhy/ceny-ryze-vystrelily-o-80-procent-cesti-zakaznici-zatim-maji-jednu-vyhodu-1436900",
+    "pubDate": "Tue, 27 Oct 2026 18:00:00 +0100",
+    "contentSnippet": "Rýže letos na světových trzích dramaticky zdražuje a překonává ostatní hlavní potravinové komodity.\n\n\nZa prudkým růstem cen stojí nepříznivé počasí, rostoucí náklady i obavy o budoucí sklizně.\n\n\nZdražování může postupně zasáhnout také Česko. Někteří zákazníci ho pocítí výrazněji než jiní.",
+    "source": "E15.cz",
+    "category": "ekonomika"
+  },
+  {
+    "title": "Nákupy na Temu a Sheinu znovu podraží. K dosavadnímu clu přibude další poplatek za balíčky z Číny ",
+    "link": "https://www.e15.cz/byznys/obchod-a-sluzby/nakupy-na-temu-a-sheinu-znovu-podrazi-k-dosavadnimu-clu-pribude-dalsi-poplatek-za-balicky-z-ciny-1436903",
+    "pubDate": "Tue, 27 Oct 2026 17:40:00 +0100",
+    "contentSnippet": "Levné nákupy z čínských e-shopů čeká už tento týden další zdražení.\nEvropská unie zavádí nový manipulační poplatek, který má podle dosavadních informací činit dvě eura.\nNovinka navazuje na červencové zavedení cla, které už výrazně změnilo nakupování Čechů. Zdražování navíc nemusí skončit, Evropská komise už připravuje další poplatek.",
+    "source": "E15.cz",
+    "category": "ekonomika"
+  },
+  {
+    "title": "Manželské spory nejsou jediným problémem Dermacolu. Firma prodělala desítky milionů",
+    "link": "https://www.e15.cz/byznys/manzelske-spory-nejsou-jedinym-problemem-dermacolu-firma-prodelala-desitky-milionu-1436904",
+    "pubDate": "Tue, 27 Oct 2026 16:55:00 +0100",
+    "contentSnippet": "Dermacol prohloubil ztrátu na 55 milionů korun, nejvíce za posledních pět let.\nKosmetické firmě klesly také tržby, letos ale očekává jejich výrazné oživení.\nNepříznivé výsledky provázejí manželské spory majitelů a odchod dlouholeté marketingové ředitelky.",
+    "source": "E15.cz",
+    "category": "ekonomika"
+  },
+  {
+    "title": "Trump podráží nohy americkým zbrojařům v Evropě, Musk si škodí sám",
+    "link": "https://www.e15.cz/zahranicni/geopolitika/trump-podrazi-nohy-americkym-zbrojarum-v-evrope-musk-si-skodi-sam-1436901",
+    "pubDate": "Tue, 27 Oct 2026 15:30:00 +0100",
+    "contentSnippet": "Evropa dochází k závěru, že spojenecké technologie nestačí.\nBrusel spřádá plány, jak Muska zbavit dominance.\nWashington povzbuzuje EU k autonomii, ale zároveň mu vadí.",
+    "source": "E15.cz",
+    "category": "ekonomika"
+  },
+  {
+    "title": "Penzijní spoření čeká zásadní změna. Ekonomové varují, že levnější fondy nemusejí lidem vydělat více",
+    "link": "https://www.e15.cz/videoporady/penzijni-sporeni-ceka-zasadni-zmena-ekonomove-varuji-ze-levnejsi-fondy-nemuseji-lidem-vydelat-vice-1436882",
+    "pubDate": "Tue, 27 Oct 2026 14:00:00 +0100",
+    "contentSnippet": "Stát chce snížit poplatky penzijních fondů na polovinu a zrušit odměny za zhodnocení.\n\n\nPenzijní společnosti varují, že nové podmínky mohou omezit příliv klientů i investiční možnosti fondů.\n\n\nEkonomové navrhují automatické zapojení mladých lidí do spoření a větší prostor pro výnosnější investice.",
+    "source": "E15.cz",
+    "category": "ekonomika"
+  },
+  {
+    "title": "Potlesk z reproduktoru a ostuda tam, kam zákazník nedohlédne. Jen technologie čínským automobilkám nevystačí",
+    "link": "https://www.e15.cz/reportaze/potlesk-z-reproduktoru-a-ostuda-tam-kam-zakaznik-nedohledne-jen-technologie-cinskym-automobilkam-nevystaci-1436855",
+    "pubDate": "Tue, 27 Oct 2026 12:45:00 +0100",
+    "contentSnippet": "Čínské automobilky Evropu v mnohém předehnaly, ve schopnosti prezentovat se ale propastně zaostávají šokujícím způsobem.\nNa týdenní akci pro tisíce hostů to ukázal výrobce Chery: některé jeho modely předčí produkci Škody Auto, novináře ani zákazníka o tom ale neumějí přesvědčit.\nFirma se nemůže vymlouvat ani na kulturní rozdíly: při prezentaci pospávají a odcházejí i čínští hosté. Je to běžné i na konferencích dalších čínských výrobců.",
+    "source": "E15.cz",
+    "category": "ekonomika"
+  },
+  {
+    "title": "Rekordní IPO na obzoru, centrální banky a výsledky technologických obrů. Zkrácený týden bude nabitý",
+    "link": "https://www.e15.cz/investicni-newsletter/rekordni-ipo-na-obzoru-centralni-banky-a-vysledky-technologickych-obru-zkraceny-tyden-bude-nabity-1436892",
+    "pubDate": "Tue, 27 Oct 2026 12:35:00 +0100",
+    "contentSnippet": "Anthropic podal žádost o vstup na Nasdaq a jeho úpis by mohl překonat i rekordní IPO SpaceX.\nDůvěra v českou ekonomiku klesá už třetí měsíc v řadě, průmysl navíc dusí drahý plyn.\nZkrácený týden přinese zasedání Fedu, ECB i japonské centrální banky a výsledky Alphabetu, Microsoftu či Amazonu.",
+    "source": "E15.cz",
+    "category": "ekonomika"
+  },
+  {
+    "title": "Důchody od ledna 2027: Proč Slováci dostanou přidáno dvakrát víc? Češi doplácejí na přísnější systém",
+    "link": "https://www.e15.cz/finexpert/duchody/duchody-od-ledna-2027-proc-slovaci-dostanou-pridano-dvakrat-vic-cesi-doplaceji-na-prisnejsi-system-1436878",
+    "pubDate": "Tue, 27 Oct 2026 12:00:00 +0100",
+    "contentSnippet": "Průměrný slovenský důchodce dostane v lednu 2027 přidáno zhruba 650 korun, ten český si musí vystačit s polovinou.\nZatímco jeden stát zvolil cestu plošné inflační kompenzace, ten druhý nasadil přísný rovnostářský metr.\nPodívejte se na přesné výpočty, jak se vaše penze změní.",
+    "source": "E15.cz",
+    "category": "ekonomika"
+  },
+  {
+    "title": "Média potřebují stabilní byznys model, říká šéf Reportérů bez hranic",
+    "link": "https://www.e15.cz/tiskove-zpravy/media-potrebuji-stabilni-byznys-model-rika-sef-reporteru-bez-hranic-1436890",
+    "pubDate": "Tue, 27 Oct 2026 11:30:00 +0100",
+    "contentSnippet": "Konference Forum Media každoročně ukazuje novinky ve světě médií, marketingu a PR. Jedním z hlavních témat letošního ročníku, který se uskuteční 10. listopadu v O2 universu, bude ekonomické fungování mediálních domů. To se totiž v posledních letech zásadně mění s tím, jak se proměňuje reklamní průmysl. Většina reklamních budgetů totiž v tuto chvíli putuje zejména do velkých digitálních platforem, jako jsou produkty společností Google, Meta či Seznam, a na tradiční média pak zbývá stále menší část.",
+    "source": "E15.cz",
+    "category": "ekonomika"
+  },
+  {
+    "title": "Mýtné je absurdně nízké, říká ministr dopravy. Příští rok ho výrazně zdraží",
+    "link": "https://www.e15.cz/byznys/doprava-a-logistika/mytne-je-absurdne-nizke-rekl-ministr-dopravy-pristi-rok-vyrazne-zdrazi-1436888",
+    "pubDate": "Tue, 27 Oct 2026 11:03:00 +0100",
+    "contentSnippet": "Mýtné pro nákladní auta se má zvýšit od poloviny příštího roku.\nU nejtěžší kategorie vozidel vzroste poplatek až o 27 procent.\nPodle ministra dopravy je cílem přiblížit se cenami okolním zemím.",
+    "source": "E15.cz",
+    "category": "ekonomika"
+  }
+];
+const category = {"id":"ekonomika","name":"Ekonomika","icon":"💰"};
+---
+
+<Layout title="Ekonomika – News" category={category}>
+  <ArticleList articles={articles} />
+</Layout>

@@ -1,0 +1,252 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ArticleList from '../components/ArticleList.astro';
+
+const articles = [
+  {
+    "title": "Srazily se španělské rychlovlaky. Vagony spadly z náspu, obětí je 50",
+    "link": "https://www.idnes.cz/zpravy/zahranicni/spanelsko-vlaky-toledo-nehoda.A261028_095329_zahranicni_jhr#utm_source=rss&utm_medium=feed&utm_campaign=zahranicni&utm_content=main",
+    "pubDate": "Wed, 28 Oct 2026 10:46:38 GMT",
+    "contentSnippet": "Srážka dvou vysokorychlostních vlaků ve Španělsku si vyžádala 60 obětí. Dalších nejméně 179 lidí utrpělo zranění. K nehodě došlo na klíčové trati spojující hlavní město Madrid s Andalusií. Stala se krátce před devátou hodinou ranní mezi obcemi Los Yébenes a Urda, kde do sebe narazily dvě plně obsazené soupravy.",
+    "source": "iDNES Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Hlaváč povýšil na armádního generála. Prezident Pavel rozdal nové hodnosti",
+    "link": "https://www.novinky.cz/clanek/domaci-hlavac-povysil-na-armadniho-generala-prezident-pavel-rozdal-nove-hodnosti-40605347",
+    "pubDate": "Wed, 28 Oct 2026 11:42:17 +0100",
+    "contentSnippet": "Náčelník generálního štábu Miroslav Hlaváč se od středy může pyšnit hodností armádního generála. Při příležitosti výročí vzniku samostatného Československa ho do nejvyšší armádní hodnosti povýšil prezident Petr Pavel. Povýšení se dočkalo celkem 16 mužů, mezi nimi i šéf vězeňské služby Tomáš Hůlka, který se stal generálporučíkem.",
+    "source": "Novinky Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Zelenskyj s Putinem se mohou brzy setkat, řekl Trump. Kreml slíbil bezpečnostní záruky",
+    "link": "https://www.idnes.cz/zpravy/zahranicni/putin-a-zelenskyj-by-se-podle-trumpa-mohli-velmi-brzy-setkat.A261028_084701_zahranicni_remy#utm_source=rss&utm_medium=feed&utm_campaign=zahranicni&utm_content=main",
+    "pubDate": "Wed, 28 Oct 2026 10:39:58 GMT",
+    "contentSnippet": "Ruský prezident Vladimir Putin a jeho ukrajinský protějšek Volodymyr Zelenskyj by se velmi brzy mohli sejít. Novinářům to bez upřesnění řekl americký prezident Donald Trump. Kremelský poradce Jurij Ušakov předtím sdělil, že Rusko nabízí Zelenskému bezpečnostní záruky výhradně pro případ, že by přicestoval přímo do Moskvy na osobní mírová jednání s Putinem.",
+    "source": "iDNES Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Opilý řidič u Prahy naboural do stromu. Auto začalo hořet",
+    "link": "https://www.novinky.cz/clanek/domaci-opily-ridic-u-prahy-naboural-do-stromu-auto-zacalo-horet-40605346",
+    "pubDate": "Wed, 28 Oct 2026 11:27:21 +0100",
+    "contentSnippet": "Ve středu dopoledne shořelo osobní auto po nárazu do stromu u Chotče na Praze-západ. Řidič, který má platný zákaz řízení, byl pod vlivem alkoholu. Dva lidé jsou po nehodě lehce zranění.",
+    "source": "Novinky Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Na ulici v Klatovech ležela krajta. Venku mohla uhynout",
+    "link": "https://www.novinky.cz/clanek/koktejl-na-ulici-v-klatovech-lezela-krajta-venku-mohla-uhynout-40605332",
+    "pubDate": "Wed, 28 Oct 2026 11:25:28 +0100",
+    "contentSnippet": "Asi půlroční krajtou královskou odchytli nedaleko klatovské synagogy strážníci. Následně ji odvezli do místního zverimexu. Jeho majitel Tadeáš Krobot upozornil, že had mohl při současných nízkých teplotách uhynout.",
+    "source": "Novinky Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Z nájmu se stalo dlouhodobé řešení. Poptávka roste i po větších bytech, říká šéfka velkého pronajímatele",
+    "link": "https://www.novinky.cz/clanek/ekonomika-z-najmu-se-stalo-dlouhodobe-reseni-poptavka-roste-i-po-vetsich-bytech-rika-sefka-velkeho-pronajimatele-40604582",
+    "pubDate": "Wed, 28 Oct 2026 11:21:58 +0100",
+    "contentSnippet": "Stále více Čechů bydlí v pronajatém bytě. Rostoucí poptávky se snaží využít i developeři, kteří začali stavět celé nové nájemní domy. Největším hráčem na tomto trhu je dlouhodobě původem izraelská společnost AFI. Karin Shalev Shogol, generální ředitelka společnosti pro Česko, pro Novinky uvedla, že firmu nyní láká výstavba čtvrtí se stovkami bytů.",
+    "source": "Novinky Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Vagón vyletěl do vzduchu, bylo to brutální. Svědci popsali tragickou nehodu vlaků ve Španělsku",
+    "link": "https://www.novinky.cz/clanek/zahranicni-evropa-vagon-vyletel-do-vzduchu-svedek-popsal-tragickou-nehodu-vlaku-ve-spanelsku-40605345",
+    "pubDate": "Wed, 28 Oct 2026 10:59:21 +0100",
+    "contentSnippet": "Přišel obrovský náraz, při kterém jeden z vagónů vylétl do vzduchu, popsal středeční nehodu dvou vysokorychlostních vlaků cestující Miguel Ángel Pérez Laguna, který pracuje ve španělské stanici Capital Radio. Další cestující Jesús Jerónimo uvedl, že incident byl brutální. Lidi podle něj srážka vlaků vymrštila ze sedadel. Nehoda si prozatím vyžádala nejméně 50 lidských životů, dalších 179 osob bylo zraněno.",
+    "source": "Novinky Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Volby v Izraeli: vzestup Arabů vyšachovává velké bloky do patové situace",
+    "link": "https://www.idnes.cz/zpravy/zahranicni/po-secteni-42-procent-hlasu-vede-v-izraelskych-volbach-vladni-blok-pise-web.A261028_070420_zahranicni_remy#utm_source=rss&utm_medium=feed&utm_campaign=zahranicni&utm_content=main",
+    "pubDate": "Wed, 28 Oct 2026 09:57:44 GMT",
+    "contentSnippet": "Po sečtení více než tří čtvrtin hlasů odevzdaných v úterních izraelských volbách vede blok premiéra Benjamina Netanjahua, většinu v parlamentu ale podle všeho mít nebude. Může získat 54 křesel, zatímco opoziční blok vedený Gadim Eisenkotem má zatím 47 mandátů. Rýsuje se patová situace, kdy ani jeden z bloků nemá na to, aby dosáhl většiny 61 poslanců,",
+    "source": "iDNES Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Vzkaz slovenských novinářů do Česka: Pokud ještě můžete zesílit svůj odpor, zesilte ho",
+    "link": "https://www.novinky.cz/clanek/kultura-tv-streaming-vzkaz-slovenskych-novinaru-do-ceska-pokud-jeste-muzete-zesilit-svuj-odpor-zesilte-ho-40605143",
+    "pubDate": "Wed, 28 Oct 2026 10:57:00 +0100",
+    "contentSnippet": "Evropskou premiéru měl na Mezinárodním festivalu dokumentárních filmů Ji.hlava slovenský film Přeladění. Snímek režisérky Sáry Prokopové popisuje postupné ovládnutí slovenské veřejnoprávní televize a rozhlasu vládními strukturami. Projekci i následnou debatu provázely emoce vyvolané nedávnými událostmi v Česku, kde se poslanci vládní strany rozhodli prosadit změnu financování veřejnoprávních médií tvrdým postupem, který je v rozporu se všemi pravidly.",
+    "source": "Novinky Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Výrobce čipů SK Hynix zesedminásobil zisk",
+    "link": "https://www.novinky.cz/clanek/ekonomika-vyrobce-cipu-sk-hynix-zesedminasobil-zisk-40605343",
+    "pubDate": "Wed, 28 Oct 2026 10:30:03 +0100",
+    "contentSnippet": "Jihokorejský výrobce čipů SK Hynix meziročně více než zesedminásobil zisk na rekordních 83,3 bilionu wonů (1,4 bilionu korun). Dál těží z poptávky po umělé inteligenci (AI), která zvyšuje ceny paměťových čipů.",
+    "source": "Novinky Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "FOTO: Pavel, Babiš i Okamura. Oslavy založení státu na Vítkově",
+    "link": "https://www.novinky.cz/clanek/domaci-foto-pavel-babis-i-okamura-oslavy-zalozeni-statu-na-vitkove-40605341",
+    "pubDate": "Wed, 28 Oct 2026 10:03:16 +0100",
+    "contentSnippet": "Za účasti nejvyšších ústavních činitelů proběhla na pražském Vítkově vojenská přehlídka u příležitosti oslav 108. výročí založení Československa.",
+    "source": "Novinky Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "U Toleda se srazily vysokorychlostní vlaky, vagóny se zřítily z náspu. Desítky mrtvých",
+    "link": "https://www.novinky.cz/clanek/zahranicni-evropa-v-toledu-se-srazily-dva-vysokorychlostni-vlaky-40605342",
+    "pubDate": "Wed, 28 Oct 2026 09:57:33 +0100",
+    "contentSnippet": "Nedaleko španělského města Toledo se ve středu ráno srazily dva vysokorychlostní vlaky. Informoval o tom server El Español, podle něhož byl přerušen provoz na trati spojující Madrid a Andalusii. Podle médií je na místě nejméně 50 mrtvých a 179 zraněných.",
+    "source": "Novinky Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Kdysi třetí největší české město. Co zbylo z Chicaga",
+    "link": "https://www.novinky.cz/clanek/zahranicni-kdysi-treti-nejvetsi-ceske-mesto-co-zbylo-z-ceskeho-chicaga-40605133",
+    "pubDate": "Wed, 28 Oct 2026 09:49:34 +0100",
+    "contentSnippet": "Před první světovou válkou žilo v Chicagu přes 100 tisíc lidí českého původu, vycházely tu česky psané noviny a na místní univerzitě přednášel budoucí československý prezident T. G. Masaryk. Šlo tehdy o město s třetí největší českou populací po Praze a Vídni. Dnes podle odhadů amerického Census Bureau stále uvádí český původ v chicagské metropolitní oblasti zhruba 73 tisíc lidí. Česky však už mluví jen málokdo a těch, kteří se snaží české dědictví udržet při životě, je ještě méně.",
+    "source": "Novinky Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Agresivní vězeň napadl v Plzni dozorce, tři z nich skončili v nemocnici",
+    "link": "https://www.novinky.cz/clanek/krimi-agresivni-vezen-napadl-v-plzni-dozorce-tri-z-nich-skoncili-v-nemocnici-40605334",
+    "pubDate": "Wed, 28 Oct 2026 09:39:04 +0100",
+    "contentSnippet": "Záchranáři zasahovali v noci z úterý na středu v plzeňské věznici na Borech. Podle prvotních informací tam agresivní trestanec napadl dozorce. Tři z nich museli záchranáři převézt do nemocnice.",
+    "source": "Novinky Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Apple chrlí jednu novinku za druhou. Po iPadu a MacBooku ukázal iMac",
+    "link": "https://www.novinky.cz/clanek/internet-a-pc-hardware-apple-chrli-jednu-novinku-za-druhou-po-ipadu-a-macbooku-ukazal-imac-40605336",
+    "pubDate": "Wed, 28 Oct 2026 09:37:59 +0100",
+    "contentSnippet": "Už ve středu večer se má v americkém Los Angeles konat velká tiskovka společnosti Apple. Americký technologický gigant ale nečekaně ještě před akcí odhaluje jednu novinku za druhou – po kompaktním tabletu iPad mini a výkonném laptopu MacBook Pro si premiéru odbyl také all-in-one počítač iMac. Nejnovější verze nabízí díky čipu M6 především svižnější pracovní tempo, ceny v Česku startují na 44 990 Kč.",
+    "source": "Novinky Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Křičel Alláhu akbar. V Srbsku zastřelili nezletilého útočníka u izraelské ambasády",
+    "link": "https://www.novinky.cz/clanek/zahranicni-evropa-kricel-allahu-akbar-v-srbsku-zastrelili-nezletileho-utocnika-u-izraelske-ambasady-40605337",
+    "pubDate": "Wed, 28 Oct 2026 09:31:00 +0100",
+    "contentSnippet": "Srbský policista střežící izraelskou ambasádu v Bělehradě v noci na středu zastřelil nezletilého mladíka, který na něj za křiku Alláhu akbar zaútočil nožem. Informoval o tom srbská stanice N1, podle níž úřady incident vyšetřují jako teroristický útok. V Izraeli se v úterý uskutečnily parlamentní volby, sečteny však budou až během středy.",
+    "source": "Novinky Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Násilný vztah skončil, strach zůstal. Lucii minulost komplikuje život s novým partnerem",
+    "link": "https://www.novinky.cz/clanek/podcasty-verim-ti-nasilny-vztah-skoncil-strach-zustal-lucii-minulost-komplikuje-zivot-s-novym-partnerem-40604084",
+    "pubDate": "Wed, 28 Oct 2026 09:11:00 +0100",
+    "contentSnippet": "Lucie si prošla vztahem, který se postupně změnil v noční můru. Ani po rozchodu ale násilí neskončilo. Bývalý partner ji pronásledoval a vyhrožoval zveřejněním intimních fotografií. Později se u ní objevila posttraumatická stresová porucha, která jí komplikovala život. O jejím příběhu jsme na Novinkách psali minulý týden. Pokračování svého vyprávění sdílí v rámci podcastu Nejseš sám, projektu Věřím ti.",
+    "source": "Novinky Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Krbová kamna bez starostí",
+    "link": "https://www.novinky.cz/clanek/bydleni-krbova-kamna-bez-starosti-40602995",
+    "pubDate": "Wed, 28 Oct 2026 09:08:00 +0100",
+    "contentSnippet": "Praskající dřevo, příjemné sálavé teplo a pohled do plamenů – krbová kamna vytvářejí atmosféru, kterou žádný jiný zdroj vytápění nenahradí. Patří mezi nejrychlejší způsoby, jak doplnit vytápění rodinného domu, chalupy nebo chaty.",
+    "source": "Novinky Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Politici si na Vítkově připomínají vznik samostatného státu",
+    "link": "https://www.novinky.cz/clanek/domaci-politici-si-na-vitkove-pripominaji-vznik-samostatneho-statu-40605333",
+    "pubDate": "Wed, 28 Oct 2026 09:00:02 +0100",
+    "contentSnippet": "Oslavy dne vzniku samostatného Československa zahájili ve středu vrcholní představitelé státu položením věnců k památníku na pražském Vítkově. Již 108. výročí si připomněli například prezident Petr Pavel, premiér Andrej Babiš (ANO), předseda Senátu Miloš Vystrčil, ministr obrany Jaromír Zůna (za SPD) i náčelník generálního štábu Miroslav Hlaváč. Pietní akt nabídly Novinky živě.",
+    "source": "Novinky Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Šéfka poslanců ANO Malá tepe opozici za výpadky paměti. Sama na detaily hlasování zapomněla",
+    "link": "https://www.novinky.cz/clanek/podcasty-policheck-sefka-poslancu-ano-mala-tepe-opozici-za-vypadky-pameti-sama-na-detaily-hlasovani-zapomnela-40605216",
+    "pubDate": "Wed, 28 Oct 2026 08:41:00 +0100",
+    "contentSnippet": "Předsedkyně poslaneckého klubu ANO Taťána Malá se na sociální síti X pustila do opozice kvůli kritice hlasování ve 4:36 ráno. Připomněla několik případů, kdy poslanci hlasovali pozdě v noci i za vlády Petra Fialy (ODS). Sama ale zapomíná na odlišné okolnosti, které uváděným nočním jednáním předcházely, například obstrukce tehdejší opozice. Dopouští se tak argumentačního faulu. Podívali jsme se na to v dalším PoliChecku.",
+    "source": "Novinky Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Nevyhodí vás, ale přimějí odejít. Šest varovných signálů tichého propouštění",
+    "link": "https://www.novinky.cz/clanek/lifestyle-sex-vztahy-nevyhodi-vas-ale-primeji-odejit-sest-varovnych-signalu-ticheho-propousteni-40604575",
+    "pubDate": "Wed, 28 Oct 2026 08:40:00 +0100",
+    "contentSnippet": "Propouštění nemusí vždy znamenat výpověď. Stále častěji se objevuje fenomén označovaný jako tiché propouštění, kdy zaměstnavatel k odchodu zaměstnance nepřímo tlačí sérií nenápadných změn. Může mu například bránit v kariérním i platovém růstu nebo ho vyřazovat z důležitých rozhodnutí. Odborníci upozorňují, že pokud se podobných signálů objeví více najednou, je dobré zbystřit.",
+    "source": "Novinky Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Bolsonaro po prohraných volbách uprchl do USA. Brazílie mu zrušila pas",
+    "link": "https://www.idnes.cz/zpravy/zahranicni/neuspesny-prezidentsky-kandidat-bolsonaro-pricestoval-do-usa-pisi-media.A261028_065330_zahranicni_remy#utm_source=rss&utm_medium=feed&utm_campaign=zahranicni&utm_content=main",
+    "pubDate": "Wed, 28 Oct 2026 05:59:00 GMT",
+    "contentSnippet": "Neúspěšný brazilský prezidentský kandidát  Flávio Bolsonaro přicestoval do Spojených států, a to několik hodin poté, co Brazílie zrušila platnost jeho cestovních dokladů. Dorazil na Floridu, kde se setkal s bratrem.",
+    "source": "iDNES Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Po sečtení 76 procent hlasů vede v Izraeli Netanjahu, většinu ale nemá",
+    "link": "https://www.novinky.cz/clanek/volby-po-secteni-42-procent-hlasu-vede-v-izraelskych-volbach-vladni-blok-40605327",
+    "pubDate": "Wed, 28 Oct 2026 06:24:35 +0100",
+    "contentSnippet": "Po sečtení více než 76 procent hlasů vede v izraelských parlamentních volbách vládní blok premiéra Benjamina Netanjahua, kterému dílčí výsledky přisuzují zisk 54 křesel. Opoziční blok má zatím 47 mandátů. A strany volené převážně izraelskými Araby dalších 19 míst. S odvoláním na ústřední volební komisi o tom ve středu brzy ráno informoval server The Times of Israel (ToI), který předtím uvedl, že se výsledky budou s pokračujícím sčítáním měnit a rozdíly mezi bloky se už začaly zmenšovat.",
+    "source": "Novinky Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Nejvíc mandátů získá Netanjahu, ukazují průzkumy. Většina pro opozici? Jen s Araby",
+    "link": "https://www.idnes.cz/zpravy/zahranicni/vysledky-parlamentni-volby-izrael.A261027_210519_zahranicni_lupr#utm_source=rss&utm_medium=feed&utm_campaign=zahranicni&utm_content=main",
+    "pubDate": "Tue, 27 Oct 2026 21:28:00 GMT",
+    "contentSnippet": "Nejvíce mandátů v parlamentních volbách v Izraeli získala strana premiéra Benjamina Netanjahua Likud, ukazují průzkumy dvou televizních stanic u volebních místností. Strana by mohla v Knesetu získat 24 či 25 mandátů, zatímco opoziční strana Jašar exnáčelníka generálního štábu Gadiho Eisenkota 21 až 22 křesel z celkových 120. Výsledek opozičního ani koaličního bloku na většinu stačit nebude.",
+    "source": "iDNES Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Volební místnosti v Izraeli se uzavřely. O parlamentu rozhodovaly rekordní davy",
+    "link": "https://www.idnes.cz/zpravy/zahranicni/izrael-parlamentni-volby-netanjahu-likud-eisenkot.A261027_061558_zahranicni_ikul#utm_source=rss&utm_medium=feed&utm_campaign=zahranicni&utm_content=main",
+    "pubDate": "Tue, 27 Oct 2026 20:01:00 GMT",
+    "contentSnippet": "V Izraeli se úderem 21. hodiny uzavřely volební místnosti a skončily tak parlamentní volby. Nyní přichází na řadu sčítání hlasů. Výsledky z prvního hlasování od tragického teroristického útoku hnutí Hamás z října 2023 ukáží, zda u vlády zůstane pravicová koalice premiéra Benjamina Netanjahua, nebo ji vystřídá opozice vedená centristou a bývalým šéfem armády Gadim Eisenkotem.",
+    "source": "iDNES Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Nezvyklé fronty i strach z Arabů. Tel Aviv hřmí touhou po změně i obavami o přežití",
+    "link": "https://www.idnes.cz/zpravy/zahranicni/izraelske-paralemntni-volby-2026-tel-aviv.A261027_163325_zahranicni_rtn#utm_source=rss&utm_medium=feed&utm_campaign=zahranicni&utm_content=main",
+    "pubDate": "Tue, 27 Oct 2026 18:29:00 GMT",
+    "contentSnippet": "Skoro pět milionů odevzdaných hlasů do šesté hodiny, nebývalý úspěch. Izraelci v úterý vyrazili k volbám s nečekaným zápalem. Liberální centrum Tel Avivu si užívalo slunečný den volna v barech a se sny o konci Benjamina Netanjahua, stačilo ale popojet o pár kilometrů na jih a nálada se dramaticky změnila.",
+    "source": "iDNES Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Trump čelí modrému převratu. Demokraté sahají po dříve nemyslitelných státech",
+    "link": "https://www.idnes.cz/zpravy/zahranicni/trump-senat-volby-do-kongresu-2026-demokrate-republikani-ohio-texas-severni-karolina-kansas-maine-al.A261027_132244_zahranicni_jhr#utm_source=rss&utm_medium=feed&utm_campaign=zahranicni&utm_content=main",
+    "pubDate": "Tue, 27 Oct 2026 17:21:00 GMT",
+    "contentSnippet": "Nadcházející volby do Kongresu mohou ve Spojených státech otřást zavedenými pořádky. Nespokojenost s politikou prezidenta Donalda Trumpa, která je značná i mezi republikány, může Demokratické straně zajistit kontrolu nad Sněmovnou reprezentantů i Senátem. V horní komoře může uspět i ve státech, kde to dosud bylo nemyslitelné. Portál iDNES.cz přináší jejich přehled.",
+    "source": "iDNES Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Největší deeskalace od začátku války. Příměří v Oleškách má trvat šest dní",
+    "link": "https://www.idnes.cz/zpravy/zahranicni/rusko-zastavilo-utoky-u-chersonu-kvuli-pomoci-lidem-v-oleskach.A261027_022438_zahranicni_air#utm_source=rss&utm_medium=feed&utm_campaign=zahranicni&utm_content=main",
+    "pubDate": "Tue, 27 Oct 2026 16:52:00 GMT",
+    "contentSnippet": "Rusko a Ukrajina oznámily, že v noci zavedly lokální příměří kvůli humanitární akci ve městě Olešky. Lidem v této Ruskem okupované obci u frontové linie mají být zajištěny dodávky potravin a léků, případně jejich evakuace. Hlavní ukrajinský vyjednavač Davyd Arachamija uvedl, že klid zbraní kolem Olešek potrvá do neděle 1. listopadu. Obě strany mezitím potvrdily, že příměří se dodržuje.",
+    "source": "iDNES Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "První mimo USA. Střely pro protiraketové systémy Patriot bude servisovat Polsko",
+    "link": "https://www.idnes.cz/zpravy/zahranicni/patriot-pac-3-polsko-sobkowiakova-czarnecka-usa.A261027_165036_zahranicni_ptac#utm_source=rss&utm_medium=feed&utm_campaign=zahranicni&utm_content=main",
+    "pubDate": "Tue, 27 Oct 2026 16:34:00 GMT",
+    "contentSnippet": "V Polsku vznikne servisní centrum pro střely PAC-3 do systémů protiraketové obrany Patriot. V úterý to oznámila náměstkyně polského ministra obrany Magdalena Sobkowiaková-Czarnecká. Centrum bude jediné svého druhu mimo Spojené státy. O jeho umístění přitom usilovalo Německo, Norsko a Nizozemsko.",
+    "source": "iDNES Zahraniční",
+    "category": "zahranici"
+  },
+  {
+    "title": "Pellegrini se staví Ficovi na odpor. Kvůli ministrovi osloví Ústavní soud",
+    "link": "https://www.idnes.cz/zpravy/zahranicni/slovensko-peter-pellegrini-ustavni-soud-filip-kuffa-ministr-fico-sns.A261027_161115_zahranicni_kha#utm_source=rss&utm_medium=feed&utm_campaign=zahranicni&utm_content=main",
+    "pubDate": "Tue, 27 Oct 2026 15:33:00 GMT",
+    "contentSnippet": "Slovenský prezident Peter Pellegrini nadále odmítá jmenovat novým ministrem životního prostředí současného náměstka na tomto ministerstvu Filipa Kuffu, kterého mu na žádost koaliční strany SNS opakovaně navrhl premiér Robert Fico. Pellegrini to zdůvodňuje tím, že nejprve požádá Ústavní soud o výklad základního zákona ohledně pravomocí hlavy státu.",
+    "source": "iDNES Zahraniční",
+    "category": "zahranici"
+  }
+];
+const category = {"id":"zahranici","name":"Ze světa","icon":"🌍"};
+---
+
+<Layout title="Ze světa – News" category={category}>
+  <ArticleList articles={articles} />
+</Layout>

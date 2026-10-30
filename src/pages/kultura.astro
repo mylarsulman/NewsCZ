@@ -1,0 +1,252 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ArticleList from '../components/ArticleList.astro';
+
+const articles = [
+  {
+    "title": "Hlaváč povýšil na armádního generála. Prezident Pavel rozdal nové hodnosti",
+    "link": "https://www.novinky.cz/clanek/domaci-hlavac-povysil-na-armadniho-generala-prezident-pavel-rozdal-nove-hodnosti-40605347",
+    "pubDate": "Wed, 28 Oct 2026 11:42:17 +0100",
+    "contentSnippet": "Náčelník generálního štábu Miroslav Hlaváč se od středy může pyšnit hodností armádního generála. Při příležitosti výročí vzniku samostatného Československa ho do nejvyšší armádní hodnosti povýšil prezident Petr Pavel. Povýšení se dočkalo celkem 16 mužů, mezi nimi i šéf vězeňské služby Tomáš Hůlka, který se stal generálporučíkem.",
+    "source": "Novinky Kultura",
+    "category": "kultura"
+  },
+  {
+    "title": "Opilý řidič u Prahy naboural do stromu. Auto začalo hořet",
+    "link": "https://www.novinky.cz/clanek/domaci-opily-ridic-u-prahy-naboural-do-stromu-auto-zacalo-horet-40605346",
+    "pubDate": "Wed, 28 Oct 2026 11:27:21 +0100",
+    "contentSnippet": "Ve středu dopoledne shořelo osobní auto po nárazu do stromu u Chotče na Praze-západ. Řidič, který má platný zákaz řízení, byl pod vlivem alkoholu. Dva lidé jsou po nehodě lehce zranění.",
+    "source": "Novinky Kultura",
+    "category": "kultura"
+  },
+  {
+    "title": "Na ulici v Klatovech ležela krajta. Venku mohla uhynout",
+    "link": "https://www.novinky.cz/clanek/koktejl-na-ulici-v-klatovech-lezela-krajta-venku-mohla-uhynout-40605332",
+    "pubDate": "Wed, 28 Oct 2026 11:25:28 +0100",
+    "contentSnippet": "Asi půlroční krajtou královskou odchytli nedaleko klatovské synagogy strážníci. Následně ji odvezli do místního zverimexu. Jeho majitel Tadeáš Krobot upozornil, že had mohl při současných nízkých teplotách uhynout.",
+    "source": "Novinky Kultura",
+    "category": "kultura"
+  },
+  {
+    "title": "Z nájmu se stalo dlouhodobé řešení. Poptávka roste i po větších bytech, říká šéfka velkého pronajímatele",
+    "link": "https://www.novinky.cz/clanek/ekonomika-z-najmu-se-stalo-dlouhodobe-reseni-poptavka-roste-i-po-vetsich-bytech-rika-sefka-velkeho-pronajimatele-40604582",
+    "pubDate": "Wed, 28 Oct 2026 11:21:58 +0100",
+    "contentSnippet": "Stále více Čechů bydlí v pronajatém bytě. Rostoucí poptávky se snaží využít i developeři, kteří začali stavět celé nové nájemní domy. Největším hráčem na tomto trhu je dlouhodobě původem izraelská společnost AFI. Karin Shalev Shogol, generální ředitelka společnosti pro Česko, pro Novinky uvedla, že firmu nyní láká výstavba čtvrtí se stovkami bytů.",
+    "source": "Novinky Kultura",
+    "category": "kultura"
+  },
+  {
+    "title": "Vagón vyletěl do vzduchu, bylo to brutální. Svědci popsali tragickou nehodu vlaků ve Španělsku",
+    "link": "https://www.novinky.cz/clanek/zahranicni-evropa-vagon-vyletel-do-vzduchu-svedek-popsal-tragickou-nehodu-vlaku-ve-spanelsku-40605345",
+    "pubDate": "Wed, 28 Oct 2026 10:59:21 +0100",
+    "contentSnippet": "Přišel obrovský náraz, při kterém jeden z vagónů vylétl do vzduchu, popsal středeční nehodu dvou vysokorychlostních vlaků cestující Miguel Ángel Pérez Laguna, který pracuje ve španělské stanici Capital Radio. Další cestující Jesús Jerónimo uvedl, že incident byl brutální. Lidi podle něj srážka vlaků vymrštila ze sedadel. Nehoda si prozatím vyžádala nejméně 50 lidských životů, dalších 179 osob bylo zraněno.",
+    "source": "Novinky Kultura",
+    "category": "kultura"
+  },
+  {
+    "title": "Vzkaz slovenských novinářů do Česka: Pokud ještě můžete zesílit svůj odpor, zesilte ho",
+    "link": "https://www.novinky.cz/clanek/kultura-tv-streaming-vzkaz-slovenskych-novinaru-do-ceska-pokud-jeste-muzete-zesilit-svuj-odpor-zesilte-ho-40605143",
+    "pubDate": "Wed, 28 Oct 2026 10:57:00 +0100",
+    "contentSnippet": "Evropskou premiéru měl na Mezinárodním festivalu dokumentárních filmů Ji.hlava slovenský film Přeladění. Snímek režisérky Sáry Prokopové popisuje postupné ovládnutí slovenské veřejnoprávní televize a rozhlasu vládními strukturami. Projekci i následnou debatu provázely emoce vyvolané nedávnými událostmi v Česku, kde se poslanci vládní strany rozhodli prosadit změnu financování veřejnoprávních médií tvrdým postupem, který je v rozporu se všemi pravidly.",
+    "source": "Novinky Kultura",
+    "category": "kultura"
+  },
+  {
+    "title": "Výrobce čipů SK Hynix zesedminásobil zisk",
+    "link": "https://www.novinky.cz/clanek/ekonomika-vyrobce-cipu-sk-hynix-zesedminasobil-zisk-40605343",
+    "pubDate": "Wed, 28 Oct 2026 10:30:03 +0100",
+    "contentSnippet": "Jihokorejský výrobce čipů SK Hynix meziročně více než zesedminásobil zisk na rekordních 83,3 bilionu wonů (1,4 bilionu korun). Dál těží z poptávky po umělé inteligenci (AI), která zvyšuje ceny paměťových čipů.",
+    "source": "Novinky Kultura",
+    "category": "kultura"
+  },
+  {
+    "title": "FOTO: Pavel, Babiš i Okamura. Oslavy založení státu na Vítkově",
+    "link": "https://www.novinky.cz/clanek/domaci-foto-pavel-babis-i-okamura-oslavy-zalozeni-statu-na-vitkove-40605341",
+    "pubDate": "Wed, 28 Oct 2026 10:03:16 +0100",
+    "contentSnippet": "Za účasti nejvyšších ústavních činitelů proběhla na pražském Vítkově vojenská přehlídka u příležitosti oslav 108. výročí založení Československa.",
+    "source": "Novinky Kultura",
+    "category": "kultura"
+  },
+  {
+    "title": "U Toleda se srazily vysokorychlostní vlaky, vagóny se zřítily z náspu. Desítky mrtvých",
+    "link": "https://www.novinky.cz/clanek/zahranicni-evropa-v-toledu-se-srazily-dva-vysokorychlostni-vlaky-40605342",
+    "pubDate": "Wed, 28 Oct 2026 09:57:33 +0100",
+    "contentSnippet": "Nedaleko španělského města Toledo se ve středu ráno srazily dva vysokorychlostní vlaky. Informoval o tom server El Español, podle něhož byl přerušen provoz na trati spojující Madrid a Andalusii. Podle médií je na místě nejméně 50 mrtvých a 179 zraněných.",
+    "source": "Novinky Kultura",
+    "category": "kultura"
+  },
+  {
+    "title": "Kdysi třetí největší české město. Co zbylo z Chicaga",
+    "link": "https://www.novinky.cz/clanek/zahranicni-kdysi-treti-nejvetsi-ceske-mesto-co-zbylo-z-ceskeho-chicaga-40605133",
+    "pubDate": "Wed, 28 Oct 2026 09:49:34 +0100",
+    "contentSnippet": "Před první světovou válkou žilo v Chicagu přes 100 tisíc lidí českého původu, vycházely tu česky psané noviny a na místní univerzitě přednášel budoucí československý prezident T. G. Masaryk. Šlo tehdy o město s třetí největší českou populací po Praze a Vídni. Dnes podle odhadů amerického Census Bureau stále uvádí český původ v chicagské metropolitní oblasti zhruba 73 tisíc lidí. Česky však už mluví jen málokdo a těch, kteří se snaží české dědictví udržet při životě, je ještě méně.",
+    "source": "Novinky Kultura",
+    "category": "kultura"
+  },
+  {
+    "title": "Agresivní vězeň napadl v Plzni dozorce, tři z nich skončili v nemocnici",
+    "link": "https://www.novinky.cz/clanek/krimi-agresivni-vezen-napadl-v-plzni-dozorce-tri-z-nich-skoncili-v-nemocnici-40605334",
+    "pubDate": "Wed, 28 Oct 2026 09:39:04 +0100",
+    "contentSnippet": "Záchranáři zasahovali v noci z úterý na středu v plzeňské věznici na Borech. Podle prvotních informací tam agresivní trestanec napadl dozorce. Tři z nich museli záchranáři převézt do nemocnice.",
+    "source": "Novinky Kultura",
+    "category": "kultura"
+  },
+  {
+    "title": "Apple chrlí jednu novinku za druhou. Po iPadu a MacBooku ukázal iMac",
+    "link": "https://www.novinky.cz/clanek/internet-a-pc-hardware-apple-chrli-jednu-novinku-za-druhou-po-ipadu-a-macbooku-ukazal-imac-40605336",
+    "pubDate": "Wed, 28 Oct 2026 09:37:59 +0100",
+    "contentSnippet": "Už ve středu večer se má v americkém Los Angeles konat velká tiskovka společnosti Apple. Americký technologický gigant ale nečekaně ještě před akcí odhaluje jednu novinku za druhou – po kompaktním tabletu iPad mini a výkonném laptopu MacBook Pro si premiéru odbyl také all-in-one počítač iMac. Nejnovější verze nabízí díky čipu M6 především svižnější pracovní tempo, ceny v Česku startují na 44 990 Kč.",
+    "source": "Novinky Kultura",
+    "category": "kultura"
+  },
+  {
+    "title": "Křičel Alláhu akbar. V Srbsku zastřelili nezletilého útočníka u izraelské ambasády",
+    "link": "https://www.novinky.cz/clanek/zahranicni-evropa-kricel-allahu-akbar-v-srbsku-zastrelili-nezletileho-utocnika-u-izraelske-ambasady-40605337",
+    "pubDate": "Wed, 28 Oct 2026 09:31:00 +0100",
+    "contentSnippet": "Srbský policista střežící izraelskou ambasádu v Bělehradě v noci na středu zastřelil nezletilého mladíka, který na něj za křiku Alláhu akbar zaútočil nožem. Informoval o tom srbská stanice N1, podle níž úřady incident vyšetřují jako teroristický útok. V Izraeli se v úterý uskutečnily parlamentní volby, sečteny však budou až během středy.",
+    "source": "Novinky Kultura",
+    "category": "kultura"
+  },
+  {
+    "title": "Násilný vztah skončil, strach zůstal. Lucii minulost komplikuje život s novým partnerem",
+    "link": "https://www.novinky.cz/clanek/podcasty-verim-ti-nasilny-vztah-skoncil-strach-zustal-lucii-minulost-komplikuje-zivot-s-novym-partnerem-40604084",
+    "pubDate": "Wed, 28 Oct 2026 09:11:00 +0100",
+    "contentSnippet": "Lucie si prošla vztahem, který se postupně změnil v noční můru. Ani po rozchodu ale násilí neskončilo. Bývalý partner ji pronásledoval a vyhrožoval zveřejněním intimních fotografií. Později se u ní objevila posttraumatická stresová porucha, která jí komplikovala život. O jejím příběhu jsme na Novinkách psali minulý týden. Pokračování svého vyprávění sdílí v rámci podcastu Nejseš sám, projektu Věřím ti.",
+    "source": "Novinky Kultura",
+    "category": "kultura"
+  },
+  {
+    "title": "Krbová kamna bez starostí",
+    "link": "https://www.novinky.cz/clanek/bydleni-krbova-kamna-bez-starosti-40602995",
+    "pubDate": "Wed, 28 Oct 2026 09:08:00 +0100",
+    "contentSnippet": "Praskající dřevo, příjemné sálavé teplo a pohled do plamenů – krbová kamna vytvářejí atmosféru, kterou žádný jiný zdroj vytápění nenahradí. Patří mezi nejrychlejší způsoby, jak doplnit vytápění rodinného domu, chalupy nebo chaty.",
+    "source": "Novinky Kultura",
+    "category": "kultura"
+  },
+  {
+    "title": "Politici si na Vítkově připomínají vznik samostatného státu",
+    "link": "https://www.novinky.cz/clanek/domaci-politici-si-na-vitkove-pripominaji-vznik-samostatneho-statu-40605333",
+    "pubDate": "Wed, 28 Oct 2026 09:00:02 +0100",
+    "contentSnippet": "Oslavy dne vzniku samostatného Československa zahájili ve středu vrcholní představitelé státu položením věnců k památníku na pražském Vítkově. Již 108. výročí si připomněli například prezident Petr Pavel, premiér Andrej Babiš (ANO), předseda Senátu Miloš Vystrčil, ministr obrany Jaromír Zůna (za SPD) i náčelník generálního štábu Miroslav Hlaváč. Pietní akt nabídly Novinky živě.",
+    "source": "Novinky Kultura",
+    "category": "kultura"
+  },
+  {
+    "title": "Šéfka poslanců ANO Malá tepe opozici za výpadky paměti. Sama na detaily hlasování zapomněla",
+    "link": "https://www.novinky.cz/clanek/podcasty-policheck-sefka-poslancu-ano-mala-tepe-opozici-za-vypadky-pameti-sama-na-detaily-hlasovani-zapomnela-40605216",
+    "pubDate": "Wed, 28 Oct 2026 08:41:00 +0100",
+    "contentSnippet": "Předsedkyně poslaneckého klubu ANO Taťána Malá se na sociální síti X pustila do opozice kvůli kritice hlasování ve 4:36 ráno. Připomněla několik případů, kdy poslanci hlasovali pozdě v noci i za vlády Petra Fialy (ODS). Sama ale zapomíná na odlišné okolnosti, které uváděným nočním jednáním předcházely, například obstrukce tehdejší opozice. Dopouští se tak argumentačního faulu. Podívali jsme se na to v dalším PoliChecku.",
+    "source": "Novinky Kultura",
+    "category": "kultura"
+  },
+  {
+    "title": "Nevyhodí vás, ale přimějí odejít. Šest varovných signálů tichého propouštění",
+    "link": "https://www.novinky.cz/clanek/lifestyle-sex-vztahy-nevyhodi-vas-ale-primeji-odejit-sest-varovnych-signalu-ticheho-propousteni-40604575",
+    "pubDate": "Wed, 28 Oct 2026 08:40:00 +0100",
+    "contentSnippet": "Propouštění nemusí vždy znamenat výpověď. Stále častěji se objevuje fenomén označovaný jako tiché propouštění, kdy zaměstnavatel k odchodu zaměstnance nepřímo tlačí sérií nenápadných změn. Může mu například bránit v kariérním i platovém růstu nebo ho vyřazovat z důležitých rozhodnutí. Odborníci upozorňují, že pokud se podobných signálů objeví více najednou, je dobré zbystřit.",
+    "source": "Novinky Kultura",
+    "category": "kultura"
+  },
+  {
+    "title": "Je předávání státních vyznamenání monarchistický přežitek?",
+    "link": "https://denikalarm.cz/2026/10/je-predavani-statnich-vyznamenani-monarchisticky-prezitek/",
+    "pubDate": "Wed, 28 Oct 2026 05:30:00 +0000",
+    "contentSnippet": "V novém dílu podcastu Dějiny bez konce probíráme s uměleckou skupinou měkký í význam státních vyznamenání, jejich smysl v demokratické společnosti a to, jak se liší charakter vyznamenání jednotlivých polistopadových prezidentů.",
+    "source": "A2larm",
+    "category": "kultura"
+  },
+  {
+    "title": "Po sečtení 76 procent hlasů vede v Izraeli Netanjahu, většinu ale nemá",
+    "link": "https://www.novinky.cz/clanek/volby-po-secteni-42-procent-hlasu-vede-v-izraelskych-volbach-vladni-blok-40605327",
+    "pubDate": "Wed, 28 Oct 2026 06:24:35 +0100",
+    "contentSnippet": "Po sečtení více než 76 procent hlasů vede v izraelských parlamentních volbách vládní blok premiéra Benjamina Netanjahua, kterému dílčí výsledky přisuzují zisk 54 křesel. Opoziční blok má zatím 47 mandátů. A strany volené převážně izraelskými Araby dalších 19 míst. S odvoláním na ústřední volební komisi o tom ve středu brzy ráno informoval server The Times of Israel (ToI), který předtím uvedl, že se výsledky budou s pokračujícím sčítáním měnit a rozdíly mezi bloky se už začaly zmenšovat.",
+    "source": "Novinky Kultura",
+    "category": "kultura"
+  },
+  {
+    "title": "Boj o média Babiš nemůže vyhrát. Kvůli Okamurovi obětoval i zájmy svých voličů",
+    "link": "https://denikalarm.cz/2026/10/boj-o-media-babis-nemuze-vyhrat-kvuli-okamurovi-obetoval-i-zajmy-svych-volicu/",
+    "pubDate": "Wed, 28 Oct 2026 05:20:00 +0000",
+    "contentSnippet": "Praha musí bojovat za práva lidí v regionech, jinak veřejnoprávní média nezachrání. Možná by se o nich mělo hlasovat v referendu, konečně by se Okamura dočkal přímé demokracie.",
+    "source": "A2larm",
+    "category": "kultura"
+  },
+  {
+    "title": "Radikální demokracie, důvěra ve vědu i hnutí bez tváří. Srbsko po dvou letech boje svrhlo autoritáře Vučiće",
+    "link": "https://denikalarm.cz/2026/10/radikalni-demokracie-duvera-ve-vedu-i-hnuti-bez-tvari-srbsko-po-dvou-letech-boje-svrhlo-autoritare-vucice/",
+    "pubDate": "Wed, 28 Oct 2026 05:10:00 +0000",
+    "contentSnippet": "Jedno studentské hnutí v Evropě nezůstalo jen u protestů. Srbští studenti změnili představy o tom, jak může vypadat politické organizování se a co znamená zastupitelská demokracie. Ve volbách porazili autoritáře Aleksandara Vučiće.",
+    "source": "A2larm",
+    "category": "kultura"
+  },
+  {
+    "title": "Festival murmur v Libčicích nad Vltavou nabídne ozvěny metalu, rap, elektroniku a altpop budoucnosti",
+    "link": "https://denikalarm.cz/2026/10/festival-murmur-v-libcicich-nad-vltavou-nabidne-ozveny-metalu-rap-elektroniku-a-altpop-budoucnosti/",
+    "pubDate": "Wed, 28 Oct 2026 05:00:00 +0000",
+    "contentSnippet": "Festival murmur: o čem se šeptá ve světové alternativě. Heartnoize představí Dagmar Zunigu, Cyst, GbClifford, Midwife a další v Uhelném mlýně kousek za Prahou.",
+    "source": "A2larm",
+    "category": "kultura"
+  },
+  {
+    "title": "„ODS nechceme!“ Stovky lidí v Praze demonstrovaly proti další pravicové koalici",
+    "link": "https://denikalarm.cz/2026/10/ods-nechceme-stovky-lidi-v-praze-demonstrovaly-proti-dalsi-pravicove-koalici/",
+    "pubDate": "Tue, 27 Oct 2026 05:20:00 +0000",
+    "contentSnippet": "Krize bydlení, klima i korupce. Pražané protestovali proti krokům Petra Hlaváčka, který chce raději vládnout s ODS než s Prahou sobě a Piráty.",
+    "source": "A2larm",
+    "category": "kultura"
+  },
+  {
+    "title": "Cesta „komunistky“ Konečné do náruče oligarchie",
+    "link": "https://denikalarm.cz/2026/10/cesta-komunistky-konecne-do-naruce-oligarchie/",
+    "pubDate": "Tue, 27 Oct 2026 05:10:00 +0000",
+    "contentSnippet": "Kateřina Konečná rozšířila řady eurofrakce Patrioti. Po boku lepenovců a rakouských Svobodných může konečně přestat předstírat levicovost.",
+    "source": "A2larm",
+    "category": "kultura"
+  },
+  {
+    "title": "Radka Denemarková nepronesla odvážný projev, Sally Rooney nefinancuje terorismus a v Česku jsou političtí vězni",
+    "link": "https://denikalarm.cz/2026/10/radka-denemarkova-nepronesla-odvazny-projev-sally-rooney-nefinancuje-terorismus-a-v-cesku-jsou-politicti-vezni/",
+    "pubDate": "Tue, 27 Oct 2026 05:00:00 +0000",
+    "contentSnippet": "Radka Denemarková nám připomněla to, co víme – že máme špatnou vládu a že je součástí globálního autoritářského trendu. Sally Rooney nám připomněla to, na co máme sklon zapomínat – že i v Česku máme politické vězně.",
+    "source": "A2larm",
+    "category": "kultura"
+  },
+  {
+    "title": "„4:36 je jen začátek!“ ČT a ČRo jsou překážky pro hladké oligarchické vládnutí",
+    "link": "https://denikalarm.cz/2026/10/436-je-jen-zacatek-ct-a-cro-jsou-prekazky-pro-hladke-oligarchicke-vladnuti/",
+    "pubDate": "Mon, 26 Oct 2026 05:01:26 +0000",
+    "contentSnippet": "Návrh na zrušení koncesionářských poplatků narazil na nebývalý odpor.",
+    "source": "A2larm",
+    "category": "kultura"
+  },
+  {
+    "title": "„Jsem Palestinka a můžu volit v izraelských volbách. To ale neznamená, že nežiju v apartheidu,“ říká právnička",
+    "link": "https://denikalarm.cz/2026/10/jsem-palestinka-a-muzu-volit-v-izraelskych-volbach-to-ale-neznamena-ze-neziju-v-apartheidu-rika-pravnicka/",
+    "pubDate": "Mon, 26 Oct 2026 05:00:00 +0000",
+    "contentSnippet": "Zatímco Izrael se chystá k volbám, práva Palestinců jsou v nejhorším stavu za dlouhé dekády. Proč byl Izrael apartheidním státem už před 7. říjnem? Jak situace eskalovala po něm?",
+    "source": "A2larm",
+    "category": "kultura"
+  },
+  {
+    "title": "Od melancholického Bowieho ve Varšavě po drzou Adélu v LA. Proměna východní Evropy v představách západního popu",
+    "link": "https://denikalarm.cz/2026/10/od-melancholickeho-bowieho-ve-varsave-po-drzou-adelu-v-la-promena-vychodni-evropy-v-predstavach-zapadniho-popu/",
+    "pubDate": "Sat, 24 Oct 2026 04:16:52 +0000",
+    "contentSnippet": "Pro úspěšnou slovenskou zpěvačku Adélu je východoevropanství důležitou součástí výpovědi. Identita „druhé“ Evropy byla v popu dlouhé roky objektem romantizace nebo přehlížení. Teď se stává jeho důležitou součástí.",
+    "source": "A2larm",
+    "category": "kultura"
+  },
+  {
+    "title": "Poučení ze současné situace: Kulturních válek se nenajíš. A když už mluvíš o genocidách, nezapomeň na Gazu",
+    "link": "https://denikalarm.cz/2026/10/pouceni-ze-soucasne-situace-kulturnich-valek-se-nenajis-a-kdyz-uz-mluvis-o-genocidach-nezapomen-na-gazu/",
+    "pubDate": "Sat, 24 Oct 2026 03:23:15 +0000",
+    "contentSnippet": "Nejnovější vydání TL;DR tentokrát nemůže pominout aktuální kulturněpolitické střety. Navzdory současné vyhrocené situaci v kulturní politice jsme se dostali i k velmi úspěšnému románu Lázár Nelio Biedermanna.",
+    "source": "A2larm",
+    "category": "kultura"
+  }
+];
+const category = {"id":"kultura","name":"Kultura","icon":"🎭"};
+---
+
+<Layout title="Kultura – News" category={category}>
+  <ArticleList articles={articles} />
+</Layout>

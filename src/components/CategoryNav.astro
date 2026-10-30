@@ -1,0 +1,17 @@
+---
+interface Props {
+  categories: Array<{ id: string; name: string; icon: string }>;
+  active: string | null;
+}
+const { categories, active } = Astro.props;
+---
+<nav class="cat-nav" role="navigation" aria-label="Kategorie">
+  <a href="/" class={!active ? 'active' : ''}>
+    <span>🏠</span> Vše
+  </a>
+  {categories.map(cat => (
+    <a href={`/${cat.id}`} class={active === cat.id ? 'active' : ''}>
+      <span>{cat.icon}</span> {cat.name}
+    </a>
+  ))}
+</nav>

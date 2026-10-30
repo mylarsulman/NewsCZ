@@ -1,0 +1,23 @@
+{
+  "name": "news-aggregator",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Modern static news aggregator - hourly updated from RSS feeds",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "scrape": "node scripts/scrape-feeds.js",
+    "generate": "node scripts/generate-data.js",
+    "full-build": "npm run scrape && npm run generate && npm run build"
+  },
+  "dependencies": {
+    "astro": "^4.16.0",
+    "rss-parser": "^3.13.0",
+    "date-fns": "^3.6.0",
+    "sanitize-html": "^2.13.0"
+  },
+  "devDependencies": {
+    "@types/sanitize-html": "^2.11.0"
+  }
+}
