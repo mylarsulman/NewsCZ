@@ -8,7 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "scrape": "node scripts/scrape-feeds.js",
-    "generate": "node scripts/generate-data.js",
+    "generate": "node scripts/generate-pages.js",
     "full-build": "npm run scrape && npm run generate && npm run build"
   },
   "dependencies": {
