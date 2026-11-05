@@ -28,6 +28,23 @@ async function fetchFeedWithTimeout(feed) {
   }
 }
 
+async function fetchAllFeedsConcurrent(feeds, concurrency = 4) {
+  const results = [];
+  
+  for (let i = 0; i < feeds.length; i += concurrency) {
+    const batch = feeds.slice(i, i + concurrency);
+    const batchResults = await Promise.all(
+      batch.map(feed => fetchFeedWithTimeout(feed))
+    );
+    results.push(...batchResults);
+    batch.forEach((feed, idx) => {
+      console.log(`  ${feed.name}: ${batchResults[idx].length} items`);
+    });
+  }
+  
+  return results.flat();
+}
+
 function extractImage(item) {
   // 1. enclosure (RSS 2.0 standard)
   if (item.enclosure?.url) return item.enclosure.url;
@@ -58,13 +75,8 @@ function extractImage(item) {
 
 async function main() {
   console.log('Fetching feeds...');
-  const allItems = [];
   
-  for (const feed of FEEDS) {
-    const items = await fetchFeedWithTimeout(feed);
-    allItems.push(...items);
-    console.log(`  ${feed.name}: ${items.length} items`);
-  }
+  const allItems = await fetchAllFeedsConcurrent(FEEDS, 4);
   
   // Sort by date descending
   allItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
@@ -80,6 +92,7 @@ async function main() {
   
   console.log(`Total articles: ${allItems.length}`);
   console.log('Saved to src/content/data/articles.json');
+  process.exit(0);
 }
 
 main().catch(console.error);
